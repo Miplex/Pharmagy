@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <filter id="Mask" x="-22.7" y="-12.7" width="87.4" height="87.4" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6.5" result="blur"/>
+      <feFlood flood-color="#144ea1" flood-opacity="0.259"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Mask)">
+        <circle id="Mask-2" data-name="Mask" cx="21" cy="21" r="21" fill="#3481ef" stroke="#fff" stroke-miterlimit="10" stroke-width="3.2"/>
+      </g>
+    </clipPath>
+    <filter id="Path" x="3.115" y="8.308" width="34.962" height="37.385" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#2972da"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="TooTH" clip-path="url(#clip-path)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path)">
+      <path id="Path-2" data-name="Path" d="M16.623,3.421a5.429,5.429,0,0,0-1.128-1.973A4.112,4.112,0,0,0,13.771.306a5.932,5.932,0,0,0-4.28.208l2.335,2.474-2,2.372,1.423,1.324-.722.846L8.3,5.455,10.343,3.03,8.474,1.049A6.131,6.131,0,0,0,3.191.306,4.7,4.7,0,0,0,.338,3.423a7.376,7.376,0,0,0,.9,6.267A10.1,10.1,0,0,1,2.8,13.818q.017.125.033.254a14.857,14.857,0,0,0,.818,3.611c.426,1.057.976,1.627,1.634,1.7a1,1,0,0,0,.111.006c.648,0,1.19-.607,1.611-1.808a15.447,15.447,0,0,0,.691-3.348A3.731,3.731,0,0,1,8.2,12.564a.334.334,0,0,1,.558,0,3.731,3.731,0,0,1,.508,1.665,15.446,15.446,0,0,0,.691,3.348c.421,1.2.963,1.808,1.611,1.808a1,1,0,0,0,.111-.006c.658-.069,1.208-.639,1.634-1.7a14.857,14.857,0,0,0,.818-3.611q.016-.125.032-.245a10.136,10.136,0,0,1,1.56-4.141A7.376,7.376,0,0,0,16.623,3.421Z" transform="translate(12.12 11.31)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

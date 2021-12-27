@@ -1,0 +1,8 @@
+<svg id="Calendar_icon" xmlns="http://www.w3.org/2000/svg" width="23.595" height="24" viewBox="0 0 23.595 24">
+  <path id="Shape" d="M1.456,21.686A1.452,1.452,0,0,1,0,20.241V1.445A1.453,1.453,0,0,1,1.456,0H22.139A1.453,1.453,0,0,1,23.6,1.445v18.8a1.452,1.452,0,0,1-1.456,1.445Z" transform="translate(0 2.313)" fill="#3d8aff"/>
+  <rect id="Rectangle" width="21.848" height="1.735" transform="translate(0.874 8.096)" fill="#3d8aff"/>
+  <path id="Path" d="M.874,0A.871.871,0,0,0,0,.867V5.494a.874.874,0,0,0,1.748,0V.867A.871.871,0,0,0,.874,0Z" transform="translate(5.243)" fill="#3d8aff"/>
+  <path id="Path-2" data-name="Path" d="M.874,0A.871.871,0,0,0,0,.867V5.494a.874.874,0,0,0,1.748,0V.867A.871.871,0,0,0,.874,0Z" transform="translate(16.896)" fill="#3d8aff"/>
+  <path id="Path-3" data-name="Path" d="M7.283,0H.874a.867.867,0,1,0,0,1.735H7.283A.867.867,0,1,0,7.283,0Z" transform="translate(7.865 17.349)" fill="#3d8aff"/>
+  <path id="Path-4" data-name="Path" d="M7.283,0H.874a.867.867,0,1,0,0,1.735H7.283A.867.867,0,1,0,7.283,0Z" transform="translate(7.865 13.301)" fill="#3d8aff"/>
+</svg>

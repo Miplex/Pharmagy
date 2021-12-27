@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68" height="68" viewBox="0 0 68 68">
+  <defs>
+    <linearGradient id="linear-gradient" x2="1" y2="0.695" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3c94ff"/>
+      <stop offset="1" stop-color="#3e83ff"/>
+    </linearGradient>
+    <filter id="oval-front" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse">
+      <feOffset dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#abbbd7"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="AddItem" transform="translate(9 2)">
+    <g transform="matrix(1, 0, 0, 1, -9, -2)" filter="url(#oval-front)">
+      <circle id="oval-front-2" data-name="oval-front" cx="25" cy="25" r="25" transform="translate(9 2)" fill="url(#linear-gradient)"/>
+    </g>
+    <rect id="Rectangle" width="2.571" height="18" rx="1.28" transform="translate(23.714 16)" fill="#fff"/>
+    <rect id="Rectangle-2" data-name="Rectangle" width="2.571" height="18" rx="1.28" transform="translate(34 23.714) rotate(90)" fill="#fff"/>
+  </g>
+</svg>

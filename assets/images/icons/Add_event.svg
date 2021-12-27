@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <filter id="Oval_Copy_26" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse">
+      <feOffset dy="12" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#3d8bff" flood-opacity="0.4"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Add_event" transform="translate(12)">
+    <g transform="matrix(1, 0, 0, 1, -12, 0)" filter="url(#Oval_Copy_26)">
+      <circle id="Oval_Copy_26-2" data-name="Oval Copy 26" cx="15" cy="15" r="15" transform="translate(12)" fill="#3d8bff"/>
+    </g>
+    <rect id="Rectangle" width="1.429" height="10" rx="0.708" transform="translate(14.286 10)" fill="#fff"/>
+    <rect id="Rectangle-2" data-name="Rectangle" width="1.429" height="10" rx="0.708" transform="translate(20 14.286) rotate(90)" fill="#fff"/>
+  </g>
+</svg>

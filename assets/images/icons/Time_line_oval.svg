@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29" height="29" viewBox="0 0 29 29">
+  <defs>
+    <filter id="Oval" x="0" y="0" width="29" height="29" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#bac2d2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Time_line_oval" transform="translate(7.5 4.5)">
+    <g transform="matrix(1, 0, 0, 1, -7.5, -4.5)" filter="url(#Oval)">
+      <circle id="Oval-2" data-name="Oval" cx="7" cy="7" r="7" transform="translate(7.5 4.5)" fill="#fff"/>
+    </g>
+    <circle id="Oval-3" data-name="Oval" cx="4" cy="4" r="4" transform="translate(3 3)" fill="#4076d5"/>
+  </g>
+</svg>

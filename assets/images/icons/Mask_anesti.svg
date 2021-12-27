@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86.824" height="86.641" viewBox="0 0 86.824 86.641">
+  <defs>
+    <filter id="Mask_anesti" x="0" y="0" width="86.824" height="86.641" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6.5" result="blur"/>
+      <feFlood flood-color="#144ea1" flood-opacity="0.349"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Mask_anesti)">
+    <g id="Mask_anesti-2" data-name="Mask_anesti" transform="translate(22.7 12.7)" fill="#3481ef" stroke="#3480ee" stroke-miterlimit="10" stroke-width="3.2">
+      <ellipse cx="20.712" cy="20.621" rx="20.712" ry="20.621" stroke="none"/>
+      <ellipse cx="20.712" cy="20.621" rx="22.312" ry="22.221" fill="none"/>
+    </g>
+  </g>
+</svg>

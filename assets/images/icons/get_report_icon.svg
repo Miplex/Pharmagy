@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.616" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e5ebf6"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <filter id="Oval_Copy_27" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ccd5e6"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="get_report_icon" transform="translate(9 1)">
+    <g transform="matrix(1, 0, 0, 1, -9, -1)" filter="url(#Oval_Copy_27)">
+      <circle id="Oval_Copy_27-2" data-name="Oval Copy 27" cx="15" cy="15" r="15" transform="translate(9 1)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Path" d="M-8.081.135a.405.405,0,0,1,.6,0,.477.477,0,0,1,0,.639l-3.066,3.271H-.423A.436.436,0,0,1,0,4.5a.441.441,0,0,1-.423.458H-10.542L-7.476,8.22a.486.486,0,0,1,0,.645.405.405,0,0,1-.6,0l-3.792-4.045a.465.465,0,0,1,0-.639Z" transform="translate(10.5 8.5) rotate(-90)" fill="#919bb3"/>
+  </g>
+</svg>
