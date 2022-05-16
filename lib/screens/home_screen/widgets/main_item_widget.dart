@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmagy/constants.dart';
+import 'package:pharmagy/constants/constants.dart';
 
 class MainItemWidget extends StatelessWidget{
   MainItemWidget({Key? key}) : super (key: key);

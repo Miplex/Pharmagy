@@ -1,9 +1,0 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
-	<title>Path</title>
-	<defs>
-		<image  width="30" height="30" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAAXNSR0IB2cksfwAAAFRQTFRFAAAAsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7UsL7U5vHeJAAAABx0Uk5TAAYOExQZAgwXCBYQDUS4GH5g46n/8QVTcIxhqHLb/PsAAADgSURBVHicjZPtFoIgDIYJmV+BWkyluv/7bNYBN1Hr/QPsOYOXMZRKuujCAJhCX1Smsqohqa5KSZsWhNqGUw2Z9EqvOQW4nuSy/GafAnzOL9sj3C7Y5nHXfUdLuJdouIG7u++8plpJ6hHHSAGmje05IHFmvhAUw4P4M64LZfjOYcCR8BADRvFcj4+F+jWUcHh5DB1KCuvmfjG1oYZZ+6QKStbixWY3ZpQuFsuy1KPbUCpLKqpHB/4laM+fxM90hMD294P+aIfDZrL/teJuvlVM59+A/FvWVL1Vuab4Bac19gbbthSs3S60JAAAAABJRU5ErkJggg=="/>
-	</defs>
-	<style>
-	</style>
-	<use id="Path" href="#img1" x="0" y="0"/>
-</svg>

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_week_view/flutter_week_view.dart';
 
-import '../constants.dart';
+import 'package:pharmagy/constants/constants.dart';
 
 class ClockScreenWidget extends StatelessWidget {
   const ClockScreenWidget({Key? key}) : super(key: key);
@@ -18,7 +18,12 @@ class ClockScreenWidget extends StatelessWidget {
          Expanded(
            child: DayView(
              date: now,
-             hoursColumnStyle: HoursColumnStyle(decoration: BoxDecoration(gradient: kTimeLineCycleBackground)),
+             minimumTime: HourMinute.fromDuration(duration: Duration(hours: 7)),
+              maximumTime: HourMinute.fromDuration(duration: Duration(hours: 20, minutes: 01)),
+             hoursColumnStyle: HoursColumnStyle(
+                 decoration: BoxDecoration(gradient: kTimeLineCycleBackground),
+               interval: Duration( minutes: 30)
+             ),
          ),
          ),
         ],

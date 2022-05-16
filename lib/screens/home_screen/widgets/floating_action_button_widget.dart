@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmagy/components/list_card_widget.dart';
-import '../constants.dart';
-import '../model/appointment_data.dart';
+import 'package:pharmagy/screens/home_screen/widgets/list_card_widget.dart';
+import 'package:pharmagy/constants/constants.dart';
+import 'package:pharmagy/data/model/appointment_data.dart';
 
 class FloatingActionButtonWidget extends StatefulWidget {
   const FloatingActionButtonWidget({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import 'package:pharmagy/constants/constants.dart';
 
 class PaintLineDottedWidget extends CustomPainter{
 PaintLineDottedWidget({required this.sizeLine, required this.strokeWidth});

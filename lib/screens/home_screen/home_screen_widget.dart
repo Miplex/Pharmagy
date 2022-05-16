@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pharmagy/components/avatar_widget.dart';
-import 'package:pharmagy/components/bottom_app_bar_widget.dart';
-import 'package:pharmagy/components/floating_action_button_widget.dart';
-import 'package:pharmagy/components/main_item_widget.dart';
-import 'package:pharmagy/components/popup_dialog_widget.dart';
-import 'package:pharmagy/components/search_widget.dart';
-import 'package:pharmagy/constants.dart';
-import 'package:pharmagy/widgets/schedule_appointment_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/avatar_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/list_card_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/main_item_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/search_widget.dart';
+import 'package:pharmagy/constants/constants.dart';
+import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/schedule_appointment_widget.dart';
 
-class MainScreenWidget extends StatefulWidget {
-  const MainScreenWidget({Key? key}) : super(key: key);
+class HomeScreenWidget extends StatefulWidget {
+  const HomeScreenWidget({Key? key}) : super(key: key);
 
   @override
-  _MainScreenWidgetState createState() => _MainScreenWidgetState();
+  _HomeScreenWidgetState createState() => _HomeScreenWidgetState();
 }
 
-class _MainScreenWidgetState extends State<MainScreenWidget> {
+class _HomeScreenWidgetState extends State<HomeScreenWidget> {
   int index = 0;
   final TextEditingController _controller = TextEditingController();
   String dropdownValue = 'Today';
@@ -125,13 +126,14 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
               const SizedBox(
                 height: 42.0,
               ),
-              ScheduleAppointmentWidget(items: ['1',''],),
+             // ScheduleTimeWidget(),
+              ScheduleAppointmentWidget(items: ['1','', '', '','','','', '', '','',''],),
             ],
           ),
           Positioned(top: 150.0, child: MainItemWidget()),
         ],
       ),
-      floatingActionButton:  FloatingActionButtonWidget(),
+      floatingActionButton:  const FloatingActionButtonWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       bottomNavigationBar: BottomAppBarWidget(

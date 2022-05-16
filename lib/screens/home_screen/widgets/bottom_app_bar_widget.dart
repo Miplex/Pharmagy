@@ -59,7 +59,13 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
     return IconButton(
       //onPressed: () => widget.onChangedColorIcon(index),
       onPressed: (){
-        Navigator.pushNamed(context, '/calendar');
+         if (index == 1){
+          Navigator.pushNamed(context, '/calendar');
+        }else if(index == 2){
+          Navigator.pushNamed(context, '/clock');
+        }else if(index == 3){
+          Navigator.pushNamed(context, '/profile');
+        }
       },
       icon: icon,
       color: isSelected ? Colors.blue : Colors.grey,

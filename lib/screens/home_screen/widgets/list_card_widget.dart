@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pharmagy/model/appointment_data.dart';
+import 'package:pharmagy/data/model/appointment_data.dart';
 
 class ListCardWidget extends StatelessWidget {
   ListCardWidget({
@@ -23,8 +23,8 @@ final AppointmentData? appointmentData;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 220,
-      height: 70.0,
+      width: 250,
+      height: 80.0,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -65,20 +65,20 @@ final AppointmentData? appointmentData;
                   MainAxisAlignment.center,
                   crossAxisAlignment:
                   CrossAxisAlignment.center,
-                  children:  [
+                  children: const [
                      Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 3,
                           vertical: 2),
-                      child: Icon(
+                      child:  Icon(
                         Icons.circle,
                         color: Color(0xff8193ae),
                         size: 10.89,
                       ),
                     ),
                     Text(
-                      // '8:30 AM - 09:00 AM',
-                       '${beginTimeHourController} : ${beginTimeMinuteController} - ',
+                       '8:30 AM - 09:00 AM',
+                       //'${beginTimeHourController} : ${beginTimeMinuteController} - ',
                       //     '${appointmentData.endTmeHour} : ${appointmentData.endTimeMinute}',
                       style:  TextStyle(
                           color: Color(0xff8193ae),
