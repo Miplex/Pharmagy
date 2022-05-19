@@ -4,7 +4,7 @@ import 'package:pharmagy/constants/constants.dart';
 class MainItemWidget extends StatelessWidget{
   MainItemWidget({Key? key}) : super (key: key);
   final List<String> items = <String> ['1', '2','3' ,'1', '2','3'];
-  final PageController _pageController = PageController(viewportFraction: 0.7);
+  final PageController _pageController = PageController(viewportFraction: 0.6);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class MainItemWidget extends StatelessWidget{
       children: [
         SizedBox(
           width: media.size.width,
-          height: media.size.height / 6.5,
+          height: media.size.height / 6.0,
           child: PageView.builder(
               controller: _pageController,
               itemCount: items.length,
@@ -21,7 +21,9 @@ class MainItemWidget extends StatelessWidget{
                 return Column(
                   children:  [
                     SizedBox(
-                      width: media.size.width / 1.5,
+                     // width: media.size.width / 1.5,
+                      width: 242,
+                      height: 104,
                       child: Card(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5.0)

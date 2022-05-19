@@ -38,7 +38,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           Column(
             children: [
               Container(
-                height: 190,
+                height: 246,
                 decoration: const BoxDecoration(
                   gradient: kMainColor,
                 ),
@@ -46,27 +46,27 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SearchWidget(controller: _controller),
-                        const AvatarWidget(),
+                        const AvatarWidget(countAvatar: 5,),
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.only(top: 42.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children:  [
                               Text(
                                 'My Patients',
-                                style: kCardsWidgetPrimaryTextStyle,
+                                style: kCardsWidgetPrimaryTextStyle.copyWith(fontSize: 18.0),
                               ),
                               Text(
                                 '12 total',
-                                style: kCardsWidgetSecondTextStyle,
+                                style: kCardsWidgetSecondTextStyle.copyWith(fontSize: 12.0),
                               ),
                             ],
                           ),
@@ -74,7 +74,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                             width: 20.0,
                           ),
                           Container(
-                            height: 22,
+                            height: 32.0,
+                            width: 74.0,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5.0),
                               color: kSearchColor,
@@ -84,7 +85,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                             ),
                             child: Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 6.0),
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
                               child: DropdownButton<String>(
                                 borderRadius: BorderRadius.circular(3.0),
                                 alignment: Alignment.centerRight,
@@ -94,8 +95,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   color: Colors.white54,
                                   size: 15.0,
                                 ),
-                                style: kCardsWidgetPrimaryTextStyle.copyWith(
-                                    fontSize: 9.0),
+                                style: kCardsWidgetPrimaryTextStyle,
                                 dropdownColor: kSearchColor,
                                 underline: Container(
                                   color: Colors.transparent,
@@ -127,10 +127,10 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                 height: 42.0,
               ),
              // ScheduleTimeWidget(),
-              ScheduleAppointmentWidget(items: ['1','', '', '','','','', '', '','',''],),
+              ScheduleAppointmentWidget(items: const ['1','','1','','1','','1','','1','','1','','1','','1',''],),
             ],
           ),
-          Positioned(top: 150.0, child: MainItemWidget()),
+          Positioned(top: 200.0, child: MainItemWidget()),
         ],
       ),
       floatingActionButton:  const FloatingActionButtonWidget(),

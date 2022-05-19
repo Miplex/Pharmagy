@@ -12,8 +12,13 @@ class ScheduleAppointmentWidget extends StatelessWidget {
   ScheduleAppointmentWidget({Key? key, required this.items}) : super(key: key);
   final List<String> items;
   final ScrollController controller = ScrollController();
+  DateTime now = DateTime.now();
+
+
   @override
   Widget build(BuildContext context) {
+
+
     MediaQueryData media = MediaQuery.of(context);
     return Expanded(
       child: DecoratedBox(
@@ -60,63 +65,69 @@ class ScheduleAppointmentWidget extends StatelessWidget {
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // PainterWidget(),
-                Row(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(left: 35.0, top: 34.0),
-                      child: Text('Time',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 35.0),
+                  child: Row(
+                    children: const [
+                      Text('Time',
                           style: TextStyle(
                               color: Color(0xff2a2d36),
                               fontSize: 12,
-                              fontFamily: 'NeutrifPro',
-                              height: 1.41)),
-                    ),
-                    SizedBox(
-                      width: 45.0,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 34.0),
-                      child: Text('Events',
+                              fontFamily: 'NeutrifPro',)),
+                      SizedBox(
+                        width: 45.0,
+                      ),
+                      Text('Events',
                           style: TextStyle(
                             color: Color(0xff2a2d36),
                             fontSize: 12,
                             fontFamily: 'NeutrifPro',
                             height: 1.41,
                           )),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleChildScrollView(
                   child: Column(
                     children: [
                       const SizedBox(height: 55.0,),
-                      ScheduleTimeWidget(),
+                      ScheduleTimeWidget(
+                        beginHour: 7, beginMinute: 30, beginSecond: 0,
+                        endHour: 19, endMinute: 0, endSecond: 0, interval: 30,
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: 294.0,
-                  height: media.size.height / 2,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 18.0),
-                    child: ListView.builder(
-                        controller: controller,
-                        itemCount: items.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ListCardWidget(),
-                              // ListCardWidgetCurrently(),
-                              //  ListCardWidgetInactive(),
-                            ],
-                          );
-                        }),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15.0),
+                  child: SizedBox(
+                    //width: 294,
+                    width: 270.0,
+                    height: media.size.height / 2,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 32.0),
+                      child: ListView.builder(
+                          controller: controller,
+                          itemCount: items.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ListCardWidget(
+                                  beginTimeHourController: 9, beginTimeMinuteController: 30,
+                                  endTimeHourController: 10, endTimeMinuteController: 00,
+                                ),
+                                // ListCardWidgetCurrently(),
+                                //  ListCardWidgetInactive(),
+                              ],
+                            );
+                          }),
+                    ),
                   ),
                 ),
               ],

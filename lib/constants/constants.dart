@@ -15,4 +15,4 @@ import 'package:flutter/material.dart';
  const kBackgroundTimeLineColor = Color(0xFFD8D8D8);
  const kTimeLineBackground = LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: <Color>[Color(0xFFF8FBFF), Color(0xFFE2E9F5)]);
  const kTimeLineSolidColor = Color(0x4DB0BED4);
-
+ const kAvatarOvalColor = Color(0xFFFA3D3D);

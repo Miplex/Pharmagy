@@ -8,18 +8,18 @@ class ListCardWidget extends StatelessWidget {
     this.appointmentData,
     this.firstNameController,
     this.lastNameController,
-    this.beginTimeHourController,
-    this.beginTimeMinuteController,
-    this.endTimeHourController,
-    this.endTimeMinuteController
+    required this.beginTimeHourController,
+    required this.beginTimeMinuteController,
+    required this.endTimeHourController,
+    required this.endTimeMinuteController
   }) : super(key: key);
 final AppointmentData? appointmentData;
   final firstNameController;
   final lastNameController;
-  final beginTimeHourController;
-  final beginTimeMinuteController;
-  final endTimeHourController;
-  final endTimeMinuteController;
+  final int beginTimeHourController;
+  final int beginTimeMinuteController;
+  final int endTimeHourController;
+  final int endTimeMinuteController;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -65,8 +65,8 @@ final AppointmentData? appointmentData;
                   MainAxisAlignment.center,
                   crossAxisAlignment:
                   CrossAxisAlignment.center,
-                  children: const [
-                     Padding(
+                  children:  [
+                     const Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 3,
                           vertical: 2),
@@ -77,9 +77,8 @@ final AppointmentData? appointmentData;
                       ),
                     ),
                     Text(
-                       '8:30 AM - 09:00 AM',
-                       //'${beginTimeHourController} : ${beginTimeMinuteController} - ',
-                      //     '${appointmentData.endTmeHour} : ${appointmentData.endTimeMinute}',
+                      // '8:30 AM - 09:00 AM',
+                       '${beginTimeHourController} : ${beginTimeMinuteController} - ${endTimeHourController} : ${endTimeMinuteController}',
                       style:  TextStyle(
                           color: Color(0xff8193ae),
                           fontSize: 10,

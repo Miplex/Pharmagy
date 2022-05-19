@@ -12,7 +12,7 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 240,
-      height: 40,
+      height: 45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25.0),
         boxShadow: [

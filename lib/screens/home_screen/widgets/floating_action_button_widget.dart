@@ -36,10 +36,10 @@ class FloatingActionButtonWidget extends StatefulWidget {
             builder: (context) => ListCardWidget(
               firstNameController: firstNameController.text,
               lastNameController: lastNameController.text,
-              beginTimeHourController: beginTimeHourController.text,
-              beginTimeMinuteController: beginTimeMinuteController.text,
-              endTimeHourController: endTimeHourController.text,
-              endTimeMinuteController: endTimeMinuteController.text,
+              beginTimeHourController: int.parse(beginTimeHourController.text),
+              beginTimeMinuteController: int.parse(beginTimeMinuteController.text),
+              endTimeHourController: int.parse(endTimeHourController.text),
+              endTimeMinuteController: int.parse(endTimeMinuteController.text),
             ),
         )
         );

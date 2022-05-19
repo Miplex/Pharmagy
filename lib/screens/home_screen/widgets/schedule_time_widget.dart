@@ -2,35 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ScheduleTimeWidget extends StatelessWidget {
-  ScheduleTimeWidget({Key? key}) : super(key: key);
+  ScheduleTimeWidget({
+      required this.beginHour,
+      required this.beginMinute,
+      required this.beginSecond,
+      required this.interval,
+      required this.endHour,
+      required this.endMinute,
+      required this.endSecond,
+      Key? key}) : super(key: key);
 
 //  DateFormat now = DateFormat('HH:mm');
 
 
   DateTime now = DateTime.now();
-
-
   List<String> timeSlots = [];
+
+ final int beginHour;
+ final int beginMinute;
+ final int beginSecond;
+ final int endHour;
+ final int endMinute;
+ final int endSecond;
+ final int interval;
+
 
 
   @override
   Widget build(BuildContext context) {
 
-    DateTime startTime = DateTime(now.year, now.month, now.day, 8, 0, 0);
-    DateTime endTime = DateTime(now.year, now.month, now.day, 22, 0, 0);
-    Duration step = const Duration(minutes: 30);
 
-    while(startTime.isBefore(endTime)) {
+    DateTime beginTime = DateTime(now.year, now.month, now.day, beginHour, beginMinute, beginSecond);
+    DateTime endTime = DateTime(now.year, now.month, now.day, endHour, endMinute, endSecond);
+    Duration step =  Duration(minutes: interval);
 
-      DateTime timeIncrement = startTime.add(step);
+    while(beginTime.isBefore(endTime)) {
+
+      DateTime timeIncrement = beginTime.add(step);
       timeSlots.add(DateFormat.Hm().format(timeIncrement));
-      startTime = timeIncrement;
-      print(startTime.toString());
+      beginTime = timeIncrement;
+     // print(beginTime.toString());
     }
 
 
+
     return SizedBox(
-      height: 400.0,
+      height: 320.0,
       width: 90.0,
       child: ListView.builder(
         itemCount: 1,
@@ -50,21 +67,7 @@ class ScheduleTimeWidget extends StatelessWidget {
 
           }
           ).toList(),
-          // [
-          //   Text(
-          //     timeSlots.toString(),
-          //     style: const TextStyle(
-          //         color: Color(0xffB0BED4),
-          //         fontSize: 16,
-          //         fontFamily: 'NeutrifPro',
-          //         height: 1.41),
-          //   ),
-          //   const SizedBox(
-          //     height: 20.0,
-          //   ),
-          //   // Text('8:30', style:  TextStyle(color: Color(0xffB0BED4), fontSize: 12, fontFamily: 'NeutrifPro',height: 1.41),),
-          //   // SizedBox(height: 23.0,),
-          // ],
+
         );
       }),
     );
