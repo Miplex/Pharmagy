@@ -3,7 +3,6 @@ import 'package:pharmagy/screens/calendar_screen/calendar_screen_widget.dart';
 import 'package:pharmagy/screens/clock_screen/clock_screen_widget.dart';
 import 'package:pharmagy/screens/home_screen/home_screen_widget.dart';
 import 'package:pharmagy/screens/profile_screen/profile_screen_widget.dart';
-import 'package:pharmagy/screens/schedule_scroll_widget.dart';
 
 void main() {
   runApp(const MyApp());

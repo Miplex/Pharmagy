@@ -5,7 +5,6 @@ import 'package:pharmagy/data/model/appointment_data.dart';
 class ListCardWidget extends StatelessWidget {
   ListCardWidget({
     Key? key,
-    this.appointmentData,
     this.firstNameController,
     this.lastNameController,
     required this.beginTimeHourController,
@@ -13,13 +12,16 @@ class ListCardWidget extends StatelessWidget {
     required this.endTimeHourController,
     required this.endTimeMinuteController
   }) : super(key: key);
-final AppointmentData? appointmentData;
   final firstNameController;
   final lastNameController;
   final int beginTimeHourController;
   final int beginTimeMinuteController;
   final int endTimeHourController;
   final int endTimeMinuteController;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -78,8 +80,8 @@ final AppointmentData? appointmentData;
                     ),
                     Text(
                       // '8:30 AM - 09:00 AM',
-                       '${beginTimeHourController} : ${beginTimeMinuteController} - ${endTimeHourController} : ${endTimeMinuteController}',
-                      style:  TextStyle(
+                       '$beginTimeHourController : $beginTimeMinuteController - $endTimeHourController : $endTimeMinuteController',
+                      style:  const TextStyle(
                           color: Color(0xff8193ae),
                           fontSize: 10,
                           height: 1.7),

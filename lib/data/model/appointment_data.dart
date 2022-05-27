@@ -1,9 +1,24 @@
-class AppointmentData {
-  AppointmentData(this.firstName, this.lastName,
-      this.beginTimeHour, this.beginTameMinute,
-      this.endTmeHour, this.endTimeMinute);
+import 'package:flutter/material.dart';
 
-  String  firstName, lastName,
-          beginTimeHour, beginTameMinute,
-          endTmeHour, endTimeMinute;
+class AppointmentData {
+
+final String firstName;
+  final String lastName;
+  final String beginTimeHour;
+  final String beginTameMinute;
+  final String endTmeHour;
+  final String endTimeMinute;
+ // final Widget icon;
+
+  AppointmentData({
+      required this.firstName,
+      required this.lastName,
+      required this.beginTimeHour,
+      required this.beginTameMinute,
+      required this.endTmeHour,
+      required this.endTimeMinute,
+     // required this.icon
+      });
+
+  
 }
