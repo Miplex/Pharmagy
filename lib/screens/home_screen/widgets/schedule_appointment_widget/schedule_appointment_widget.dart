@@ -62,7 +62,6 @@ class ScheduleAppointmentWidget extends StatelessWidget {
               ),
             ),
             Column(
-              //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // PainterWidget(),
                 Padding(
@@ -118,10 +117,7 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ListCardWidget(
-                                  beginTimeHourController: 9, beginTimeMinuteController: 30,
-                                  endTimeHourController: 10, endTimeMinuteController: 00,
-                                ),
+                                ListCardWidget(),
                                 // ListCardWidgetCurrently(),
                                 //  ListCardWidgetInactive(),
                               ],

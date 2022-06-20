@@ -1,24 +1,44 @@
-import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
-class AppointmentData {
+class AppointmentData extends Equatable {
+ String firstName;
+ String lastName;
+ String beginTimeHour;
+ String beginTameMinute;
+ String endTmeHour;
+ String endTimeMinute;
+ String appoinment;
 
-final String firstName;
-  final String lastName;
-  final String beginTimeHour;
-  final String beginTameMinute;
-  final String endTmeHour;
-  final String endTimeMinute;
- // final Widget icon;
+   AppointmentData({
+    this.firstName = 'Jon',
+    this.lastName = 'Smit',
+    this.beginTimeHour = '88',
+    this.beginTameMinute = '88',
+    this.endTmeHour = '99',
+    this.endTimeMinute = '99',
+    this.appoinment = 'appointment',
+  });
 
-  AppointmentData({
-      required this.firstName,
-      required this.lastName,
-      required this.beginTimeHour,
-      required this.beginTameMinute,
-      required this.endTmeHour,
-      required this.endTimeMinute,
-     // required this.icon
-      });
+  AppointmentData copyWith({
+    String? firstName,
+    String? lastName,
+    String? beginTimeHour,
+    String? beginTameMinute,
+    String? endTmeHour,
+    String? endTimeMinute,
+    String? appoinment,
+  }) =>
+      AppointmentData(
+        firstName: firstName ?? this.firstName,
+        lastName: lastName ?? this.lastName,
+        beginTimeHour: beginTimeHour ?? this.beginTimeHour,
+        beginTameMinute: beginTameMinute ?? this.beginTameMinute,
+        endTmeHour: endTmeHour ?? this.endTmeHour,
+        endTimeMinute: endTimeMinute ?? this.endTimeMinute,
+        appoinment: appoinment ?? this.appoinment,
+      );
 
+  @override
   
+  List<Object?> get props => [firstName, lastName, beginTimeHour, beginTameMinute, endTmeHour, endTimeMinute, appoinment];
 }
