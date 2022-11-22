@@ -5,7 +5,7 @@ class ClockScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
+  //  DateTime now = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Clock'),

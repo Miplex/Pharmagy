@@ -9,7 +9,7 @@ final double strokeWidth;
   @override
   void paint(Canvas canvas, Size size) {
 
-    double dashWidth = 4.0, dashSpace = 9.0, startY = -25.0;
+    double dashWidth = 4.0, dashSpace = 9.0, startY = -40.0;
 
     final paint = Paint()
       ..style = PaintingStyle.fill

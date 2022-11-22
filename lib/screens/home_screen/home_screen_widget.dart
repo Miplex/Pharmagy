@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pharmagy/screens/home_screen/widgets/avatar_widget.dart';
+import 'package:pharmagy/data/services/appointment_data_service.dart';
+import 'package:pharmagy/locator.dart';
+import 'package:pharmagy/screens/home_screen/widgets/avatar_widget/badge_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
-import 'package:pharmagy/screens/home_screen/widgets/list_card_widget.dart';
+//import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/main_item_widget.dart';
-import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
-import 'package:pharmagy/screens/home_screen/widgets/search_widget.dart';
+//import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/search_widget/search_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/schedule_appointment_widget.dart';
 
@@ -21,15 +23,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
   final TextEditingController _controller = TextEditingController();
   String dropdownValue = 'Today';
   final item = ['Today', 'Some'];
-
   void onChangedColorIcon(int index) {
     setState(() {
       this.index = index;
       //print('index: $index');
     });
   }
+
   @override
   Widget build(BuildContext context) {
+    double _height = MediaQuery.of(context).size.height;
     return Scaffold(
       // фиксированное положение плавающей кнопки действия floating action button fixed : resizeToAvoidBottomInset: false,
       resizeToAvoidBottomInset: false,
@@ -38,35 +41,42 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           Column(
             children: [
               Container(
-                height: 246,
+                height: _height / 3.2,
                 decoration: const BoxDecoration(
                   gradient: kMainColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SearchWidget(controller: _controller),
-                        const AvatarWidget(countAvatar: 5,),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 30.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SearchWidget(controller: _controller),
+                          const BadgeWidget(
+                            count: 5,
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 42.0),
+                      padding: const EdgeInsets.only(bottom: 30.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children:  [
+                            children: [
                               Text(
                                 'My Patients',
-                                style: kCardsWidgetPrimaryTextStyle.copyWith(fontSize: 18.0),
+                                style: kCardsWidgetPrimaryTextStyle.copyWith(
+                                    fontSize: 18.0),
                               ),
                               Text(
                                 '12 total',
-                                style: kCardsWidgetSecondTextStyle.copyWith(fontSize: 12.0),
+                                style: kCardsWidgetSecondTextStyle.copyWith(
+                                    fontSize: 12.0),
                               ),
                             ],
                           ),
@@ -103,7 +113,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                 onChanged: (String? newValue) {
                                   setState(() {
                                     dropdownValue = newValue!;
-                                  });
+                                  });                            
                                 },
                                 items: <String>[
                                   'Today',
@@ -126,14 +136,17 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
               const SizedBox(
                 height: 42.0,
               ),
-             // ScheduleTimeWidget(),
-              ScheduleAppointmentWidget(items: const ['1','','1','','1','','1','','1','','1','','1','','1',''],),
+              ScheduleAppointmentWidget(),
             ],
           ),
-          Positioned(top: 200.0, child: MainItemWidget()),
+          Positioned(
+              top: _height / 4.2,//210.0,
+              child: MainItemWidget(
+                items: const ['1', '2', '3', '4'],
+              )),
         ],
       ),
-      floatingActionButton:  const FloatingActionButtonWidget(),
+      floatingActionButton: const FloatingActionButtonWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       bottomNavigationBar: BottomAppBarWidget(

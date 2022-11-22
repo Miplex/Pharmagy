@@ -1,30 +1,30 @@
 import 'package:equatable/equatable.dart';
 
 class AppointmentData extends Equatable {
- String firstName;
- String lastName;
- String beginTimeHour;
- String beginTameMinute;
- String endTmeHour;
- String endTimeMinute;
- String appoinment;
+  final String firstName;
+  final String lastName;
+  final String beginTimeHour;
+  final String beginTimeMinute;
+  final String endTimeHour;
+  final String endTimeMinute;
+  final String appoinment;
 
-   AppointmentData({
-    this.firstName = 'Jon',
-    this.lastName = 'Smit',
-    this.beginTimeHour = '88',
-    this.beginTameMinute = '88',
-    this.endTmeHour = '99',
-    this.endTimeMinute = '99',
-    this.appoinment = 'appointment',
+  const AppointmentData({
+    required this.firstName,
+    required this.lastName,
+    required this.beginTimeHour,
+    required this.beginTimeMinute,
+    required this.endTimeHour,
+    required this.endTimeMinute,
+    required this.appoinment
   });
 
   AppointmentData copyWith({
     String? firstName,
     String? lastName,
     String? beginTimeHour,
-    String? beginTameMinute,
-    String? endTmeHour,
+    String? beginTimeMinute,
+    String? endTimeHour,
     String? endTimeMinute,
     String? appoinment,
   }) =>
@@ -32,13 +32,20 @@ class AppointmentData extends Equatable {
         firstName: firstName ?? this.firstName,
         lastName: lastName ?? this.lastName,
         beginTimeHour: beginTimeHour ?? this.beginTimeHour,
-        beginTameMinute: beginTameMinute ?? this.beginTameMinute,
-        endTmeHour: endTmeHour ?? this.endTmeHour,
+        beginTimeMinute: beginTimeMinute ?? this.beginTimeMinute,
+        endTimeHour: endTimeHour ?? this.endTimeHour,
         endTimeMinute: endTimeMinute ?? this.endTimeMinute,
-        appoinment: appoinment ?? this.appoinment,
+        appoinment: appoinment ?? this.appoinment
       );
 
   @override
-  
-  List<Object?> get props => [firstName, lastName, beginTimeHour, beginTameMinute, endTmeHour, endTimeMinute, appoinment];
+  List<Object?> get props => [
+        firstName,
+        lastName,
+        beginTimeHour,
+        beginTimeMinute,
+        endTimeHour,
+        endTimeMinute,
+        appoinment,
+      ];
 }

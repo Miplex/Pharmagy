@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pharmagy/constants/constants.dart';
 
 class MainItemWidget extends StatelessWidget{
-  MainItemWidget({Key? key}) : super (key: key);
-  final List<String> items = <String> ['1', '2','3' ,'1', '2','3'];
+  MainItemWidget({Key? key, required this.items}) : super (key: key);
+  final List<String> items;
   final PageController _pageController = PageController(viewportFraction: 0.6);
 
   @override
@@ -117,6 +117,6 @@ class _CheckerButton extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onPressed: (){},
-      icon: const Icon(Icons.check_circle),color: const Color(0xff5298FF),iconSize: 20.0,);
+      icon: const Icon(Icons.check_circle),color: const Color(0xff5298FF),iconSize: 22.0,);
   }
 }

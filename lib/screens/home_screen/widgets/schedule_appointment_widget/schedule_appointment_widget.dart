@@ -1,24 +1,32 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmagy/screens/home_screen/widgets/list_card_widget.dart';
-import 'package:pharmagy/screens/home_screen/widgets/paint_line_dotted_widget.dart';
-import 'package:pharmagy/screens/home_screen/widgets/paint_line_solid_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/paint_line/paint_line_dotted_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/paint_line/paint_line_solid_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/circle_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/paint_rect_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
+import 'package:pharmagy/data/services/appointment_data_service.dart';
+import 'package:pharmagy/locator.dart';
 
 class ScheduleAppointmentWidget extends StatelessWidget {
-  ScheduleAppointmentWidget({Key? key, required this.items}) : super(key: key);
-  final List<String> items;
+  ScheduleAppointmentWidget({Key? key}) : super(key: key);
+  //final List items;
+  //final VoidCallback notifyParent;
+  //final Function() notifyParent;
   final ScrollController controller = ScrollController();
-  DateTime now = DateTime.now();
 
+  // void manageState() {
+  //   notifyParent();
+  //   print(notifyParent);
+  // }
+
+  //final DateTime now = DateTime.now();
+  final AppointmentDataService _appDataService =
+      locator<AppointmentDataService>();
 
   @override
   Widget build(BuildContext context) {
-
-
     MediaQueryData media = MediaQuery.of(context);
     return Expanded(
       child: DecoratedBox(
@@ -28,7 +36,7 @@ class ScheduleAppointmentWidget extends StatelessWidget {
             CustomPaint(
               painter: PaintRectWidget(
                   left: 87.0,
-                  top: 105.0,
+                  top: 155,
                   width: media.size.width,
                   height: media.size.height),
             ),
@@ -37,7 +45,7 @@ class ScheduleAppointmentWidget extends StatelessWidget {
               top: 68.0,
               child: CustomPaint(
                 painter:
-                    PaintLineDottedWidget(sizeLine: 30.0, strokeWidth: 1.0),
+                    PaintLineDottedWidget(sizeLine: 100.0, strokeWidth: 1.0),
               ),
             ),
             Positioned(
@@ -50,7 +58,7 @@ class ScheduleAppointmentWidget extends StatelessWidget {
             ),
             const Positioned(
               left: 80.0,
-              top: 97.0,
+              top: 150.0,
               child: CircleWidget(
                 heightBoxShadow: 14.0,
                 widthBoxShadow: 14.0,
@@ -65,14 +73,16 @@ class ScheduleAppointmentWidget extends StatelessWidget {
               children: [
                 // PainterWidget(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 35.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 25.0),
                   child: Row(
                     children: const [
                       Text('Time',
                           style: TextStyle(
-                              color: Color(0xff2a2d36),
-                              fontSize: 12,
-                              fontFamily: 'NeutrifPro',)),
+                            color: Color(0xff2a2d36),
+                            fontSize: 12,
+                            fontFamily: 'NeutrifPro',
+                          )),
                       SizedBox(
                         width: 45.0,
                       ),
@@ -85,19 +95,26 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                           )),
                     ],
                   ),
-                ),
+                ),              
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: [                
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      const SizedBox(height: 55.0,),
+                      const SizedBox(
+                        height: 70.0,
+                      ),
                       ScheduleTimeWidget(
-                        beginHour: 7, beginMinute: 30, beginSecond: 0,
-                        endHour: 19, endMinute: 0, endSecond: 0, interval: 30,
+                        beginHour: 7,
+                        beginMinute: 30,
+                        beginSecond: 0,
+                        endHour: 19,
+                        endMinute: 0,
+                        endSecond: 0,
+                        interval: 30,
                       ),
                     ],
                   ),
@@ -112,12 +129,30 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 32.0),
                       child: ListView.builder(
                           controller: controller,
-                          itemCount: items.length,
+                          itemCount: 1,
+                             // _appDataService.itemCard.length, //items.length,
                           itemBuilder: (BuildContext context, int index) {
+                        
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ListCardWidget(),
+                                for (final item in _appDataService.itemCard)
+                                ListCardWidget(
+                                  firstName: item.firstName,
+                                     // _appDataService.getAppointment.firstName,
+                                  lastName: item.lastName,
+                                     // _appDataService.getAppointment.lastName,
+                                  beginTimeHour: item.beginTimeHour,
+                                     // _appDataService.getAppointment.beginTimeHour,
+                                  beginTimeMinute: item.beginTimeMinute,
+                                     // _appDataService.getAppointment.beginTimeMinute,
+                                  endTimeHour: item.endTimeHour,
+                                      //_appDataService.getAppointment.endTimeHour,
+                                  endTimeMinute: item.endTimeMinute,
+                                      //_appDataService.getAppointment.endTimeMinute,
+                                  appointment: item.appoinment,
+                                      //_appDataService.getAppointment.appoinment,
+                                ),
                                 // ListCardWidgetCurrently(),
                                 //  ListCardWidgetInactive(),
                               ],

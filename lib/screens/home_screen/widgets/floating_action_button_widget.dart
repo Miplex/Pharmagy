@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pharmagy/constants/constants.dart';
-import 'package:pharmagy/data/model/appointment_data.dart';
+//import 'package:pharmagy/data/model/appointment_data.dart';
 import 'package:pharmagy/locator.dart';
-import '../../../data/services/appointmentData_Service.dart';
-import 'alert/alertTimeWidget.dart';
-import 'list_card_widget.dart';
+import 'package:pharmagy/data/services/appointment_data_service.dart';
+// import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
+//import 'alert/alertTimeWidget.dart';
+//import './list_card/list_card_widget.dart';
 
 class FloatingActionButtonWidget extends StatefulWidget {
   const FloatingActionButtonWidget({
@@ -21,48 +22,82 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
   final lastNameController = TextEditingController();
 
   final beginHourController = TextEditingController();
-  final beginMinuteController = TextEditingController(); 
+  final beginMinuteController = TextEditingController();
 
   final endHourController = TextEditingController();
-  final endMinuteController = TextEditingController(); 
-  AppointmentData appData = AppointmentData();
+  final endMinuteController = TextEditingController();
+
   final AppointmentDataService _appDataService =
       locator<AppointmentDataService>();
 
   String dataDropDownValue = 'appointment';
-  void _printlatestvalue(BuildContext context) {
-   
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ListCardWidget(
-            firstName: _appDataService.getAppointment.firstName,
-            lastName: _appDataService.getAppointment.lastName,
-            beginTimeHour: _appDataService.getAppointment.beginTimeHour,
-            beginTimeMinute: _appDataService.getAppointment.beginTameMinute,
-            endTimeHour: _appDataService.getAppointment.endTmeHour,
-            endTimeMinute: _appDataService.getAppointment.endTimeMinute,
-          ),
-        ));
-   
-   
-      _appDataService.setAppointment(
-        _appDataService.getAppointment.firstName = firstNameController.text,
-        _appDataService.getAppointment.lastName = lastNameController.text,
-        _appDataService.getAppointment.beginTimeHour =
-            beginHourController.text,
-        _appDataService.getAppointment.beginTameMinute =
-            beginHourController.text,
-        _appDataService.getAppointment.endTmeHour = endHourController.text,
-        _appDataService.getAppointment.endTimeMinute =
-            endMinuteController.text,
-        _appDataService.getAppointment.appoinment = dataDropDownValue,
-      );
-  
+  //List<AppointmentData> item = [];
+  void _addDataModal(BuildContext context) {
+    Navigator.of(context).pop();
 
+       _appDataService
+        .setAppointment(
+          firstNameController.text,
+          lastNameController.text,
+          beginHourController.text,
+          beginMinuteController.text,
+          endHourController.text,
+          endMinuteController.text,
+          dataDropDownValue,
+        )
+        .copyWith(
+          firstName: firstNameController.text,
+          lastName: lastNameController.text,
+          beginTimeHour: beginHourController.text,
+          beginTimeMinute: beginMinuteController.text,
+          endTimeHour: endHourController.text,
+          endTimeMinute: endMinuteController.text,
+          appoinment: dataDropDownValue,
+        );
+    _appDataService.itemCard.add(_appDataService.getAppointment);
+    firstNameController.text = '';
+    lastNameController.text = '';
+    beginHourController.text = '';
+    beginMinuteController.text = '';
+    endHourController.text = '';
+    endMinuteController.text = '';
+    // dataDropDownValue = 'appointment';
+    // //itemCard.add(1);
+    // item.add(_appDataService.getAppointment);
+    // print(item);
+    // for (var item in _appDataService.itemCard) {
+    //   print(item);
+    // }
+    // print(_appDataService.itemCard);
+    //print(_appDataService.itemCard.length);
+
+    // Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => const HomeScreenWidget(
+    //           // firstName: _appDataService.getAppointment.firstName,
+    //           // lastName: _appDataService.getAppointment.lastName,
+    //           // beginTimeHour: _appDataService.getAppointment.beginTimeHour,
+    //           // beginTimeMinute: _appDataService.getAppointment.beginTimeMinute,
+    //           // endTimeHour: _appDataService.getAppointment.endTimeHour,
+    //           // endTimeMinute: _appDataService.getAppointment.endTimeMinute,
+    //           // appointment: _appDataService.getAppointment.appoinment,
+    //           ),
+    //     ));
+
+    //print(_appDataService.getAppointment);
+    // _appDataService.setAppointment(
+    //   _appDataService.getAppointment.firstName = firstNameController.text,
+    //   _appDataService.getAppointment.lastName = lastNameController.text,
+    //   _appDataService.getAppointment.beginTimeHour = beginHourController.text,
+    //   _appDataService.getAppointment.beginTimeMinute = beginHourController.text,
+    //   _appDataService.getAppointment.endTimeHour = endHourController.text,
+    //   _appDataService.getAppointment.endTimeMinute = endMinuteController.text,
+    //   _appDataService.getAppointment.appoinment = dataDropDownValue,
+    // );
     // print(_time.hourText);
     // print(_time.minuteText);
-    print(_appDataService.getAppointment);
+    // print(_appDataService.getAppointment);
   }
 
   @override
@@ -94,40 +129,36 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
   }
 
   Future<dynamic> buildShowDialog(BuildContext context) {
-    // String dataDropDownValue = 'appointment';
     final item = ['appointment', 'anesthesia', 'mouthwash'];
-    
 
-void minuteAlertTime(String minute, BuildContext context) {
-    if (minute.isNotEmpty) {
-      final minuteDigit = int.parse(minute);
-      if (minuteDigit <= 59 && minute.length == 2) {
-        FocusScope.of(context).nextFocus();
-      } else if (minuteDigit > 59 && minute.length == 2) {
-        beginMinuteController.text = '59';
-        
-        FocusScope.of(context).nextFocus();
+    void minuteAlertTime(String minute, BuildContext context) {
+      if (minute.isNotEmpty) {
+        final minuteDigit = int.parse(minute);
+        if (minuteDigit <= 59 && minute.length == 2) {
+          FocusScope.of(context).nextFocus();
+        } else if (minuteDigit > 59 && minute.length == 2) {
+          beginMinuteController.text = '59';
+
+          FocusScope.of(context).nextFocus();
+        }
+      } else if (minute.isEmpty) {
+        FocusScope.of(context).previousFocus();
       }
-    } else if (minute.isEmpty) {
-      FocusScope.of(context).previousFocus();
     }
-  }
 
-  void hourAlertTime(String hour, BuildContext context) {
-    if (hour.isNotEmpty) {
-      final hourDigit = int.parse(hour);
-      if (hourDigit <= 23 && hour.length == 2) {
-        FocusScope.of(context).nextFocus();
-      } else if (hourDigit > 23 && hour.length == 2) {
-        beginHourController.text = '23';
-        FocusScope.of(context).nextFocus();
+    void hourAlertTime(String hour, BuildContext context) {
+      if (hour.isNotEmpty) {
+        final hourDigit = int.parse(hour);
+        if (hourDigit <= 23 && hour.length == 2) {
+          FocusScope.of(context).nextFocus();
+        } else if (hourDigit > 23 && hour.length == 2) {
+          beginHourController.text = '23';
+          FocusScope.of(context).nextFocus();
+        }
+      } else if (hour.isEmpty) {
+        FocusScope.of(context).previousFocus();
       }
-    } else if (hour.isEmpty) {
-      FocusScope.of(context).previousFocus();
     }
-  }
-
-
 
     //AlertTimeWidget _time = AlertTimeWidget();
     return showDialog(
@@ -149,11 +180,6 @@ void minuteAlertTime(String minute, BuildContext context) {
                       vertical: 5.0, horizontal: 5.0),
                   child: TextField(
                     controller: firstNameController,
-                    onChanged: (String value) {
-                      print(locator);
-                      // print(value);
-                      //print(appData.firstName);
-                    },
                     autofocus: true,
                     decoration: const InputDecoration(
                       hintText: 'First Name',
@@ -169,9 +195,6 @@ void minuteAlertTime(String minute, BuildContext context) {
                       vertical: 5.0, horizontal: 5.0),
                   child: TextField(
                     controller: lastNameController,
-                    onChanged: (String value) {
-                      //print(appData.lastName);
-                    },
                     decoration: const InputDecoration(
                       hintText: 'Last Name',
                       hintStyle: TextStyle(
@@ -206,130 +229,133 @@ void minuteAlertTime(String minute, BuildContext context) {
                       height: 10.0,
                     ),
                     Row(
-                      children:  [
+                      children: [
                         // AlertTimeWidget(),
                         // AlertTimeWidget(),
 
-                         Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              width: 60.0,
-              child: TextFormField(
-                textAlign: TextAlign.center,
-                controller: beginHourController,
-                keyboardType: TextInputType.number,
-                autofocus: true,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                onChanged: (String hour) {
-                  hourAlertTime(hour, context);
-                },
-                maxLength: 2,
-                style: const TextStyle(fontSize: 20.0),
-                decoration: const InputDecoration(
-                  hintText: '00',
-                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
-                  counter: Offstage(),
-                  filled: true,
-                  fillColor: Color(0xFFe9f5f9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.zero),
-                      borderSide: BorderSide.none),
-                ),
-              ),
-            ),
-            const Text(
-              ':',
-              style: TextStyle(fontSize: 22),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              width: 60.0,
-              child: TextFormField(
-                textAlign: TextAlign.center,
-                controller: beginMinuteController,
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                onChanged: (String minute) {
-                  minuteAlertTime(minute, context);
-                },
-                maxLength: 2,
-                style: const TextStyle(fontSize: 20.0),
-                decoration: const InputDecoration(
-                  hintText: '00',
-                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
-                  counter: Offstage(),
-                  filled: true,
-                  fillColor: Color(0xFFe9f5f9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.zero),
-                      borderSide: BorderSide.none),
-                ),
-              ),
-            ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          width: 60.0,
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            controller: beginHourController,
+                            keyboardType: TextInputType.number,
+                            autofocus: true,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            onChanged: (String hour) {
+                              hourAlertTime(hour, context);
+                            },
+                            maxLength: 2,
+                            style: const TextStyle(fontSize: 20.0),
+                            decoration: const InputDecoration(
+                              hintText: '00',
+                              hintStyle: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                              counter: Offstage(),
+                              filled: true,
+                              fillColor: Color(0xFFe9f5f9),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.zero),
+                                  borderSide: BorderSide.none),
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          ':',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          width: 60.0,
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            controller: beginMinuteController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            onChanged: (String minute) {
+                              minuteAlertTime(minute, context);
+                            },
+                            maxLength: 2,
+                            style: const TextStyle(fontSize: 20.0),
+                            decoration: const InputDecoration(
+                              hintText: '00',
+                              hintStyle: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                              counter: Offstage(),
+                              filled: true,
+                              fillColor: Color(0xFFe9f5f9),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.zero),
+                                  borderSide: BorderSide.none),
+                            ),
+                          ),
+                        ),
 
-             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              width: 60.0,
-              child: TextFormField(
-                textAlign: TextAlign.center,
-                controller: endHourController,
-                keyboardType: TextInputType.number,
-                autofocus: true,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                onChanged: (String hour) {
-                  hourAlertTime(hour, context);
-                },
-                maxLength: 2,
-                style: const TextStyle(fontSize: 20.0),
-                decoration: const InputDecoration(
-                  hintText: '00',
-                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
-                  counter: Offstage(),
-                  filled: true,
-                  fillColor: Color(0xFFe9f5f9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.zero),
-                      borderSide: BorderSide.none),
-                ),
-              ),
-            ),
-            const Text(
-              ':',
-              style: TextStyle(fontSize: 22),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              width: 60.0,
-              child: TextFormField(
-                textAlign: TextAlign.center,
-                controller: endMinuteController,
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                onChanged: (String minute) {
-                  minuteAlertTime(minute, context);
-                },
-                maxLength: 2,
-                style: const TextStyle(fontSize: 20.0),
-                decoration: const InputDecoration(
-                  hintText: '00',
-                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
-                  counter: Offstage(),
-                  filled: true,
-                  fillColor: Color(0xFFe9f5f9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.zero),
-                      borderSide: BorderSide.none),
-                ),
-              ),
-            ),
-
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          width: 60.0,
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            controller: endHourController,
+                            keyboardType: TextInputType.number,
+                            autofocus: true,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            onChanged: (String hour) {
+                              hourAlertTime(hour, context);
+                            },
+                            maxLength: 2,
+                            style: const TextStyle(fontSize: 20.0),
+                            decoration: const InputDecoration(
+                              hintText: '00',
+                              hintStyle: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                              counter: Offstage(),
+                              filled: true,
+                              fillColor: Color(0xFFe9f5f9),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.zero),
+                                  borderSide: BorderSide.none),
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          ':',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          width: 60.0,
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            controller: endMinuteController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            onChanged: (String minute) {
+                              minuteAlertTime(minute, context);
+                            },
+                            maxLength: 2,
+                            style: const TextStyle(fontSize: 20.0),
+                            decoration: const InputDecoration(
+                              hintText: '00',
+                              hintStyle: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                              counter: Offstage(),
+                              filled: true,
+                              fillColor: Color(0xFFe9f5f9),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.zero),
+                                  borderSide: BorderSide.none),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -350,7 +376,7 @@ void minuteAlertTime(String minute, BuildContext context) {
                   children: [
                     TextButton(
                       onPressed: () {
-                        _printlatestvalue(context);
+                        _addDataModal(context);
                       },
                       child: Text('Done',
                           style: kCardsWidgetSecondTextStyle.copyWith(

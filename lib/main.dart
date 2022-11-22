@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter/rendering.dart';
 import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/screens/calendar_screen/calendar_screen_widget.dart';
 import 'package:pharmagy/screens/clock_screen/clock_screen_widget.dart';
@@ -7,6 +8,7 @@ import 'package:pharmagy/screens/profile_screen/profile_screen_widget.dart';
 
 void main() {
   setupLocator();
+  //debugRepaintRainbowEnabled = true;
   runApp(const MyApp());
 }
 
