@@ -11,17 +11,8 @@ import 'package:pharmagy/locator.dart';
 
 class ScheduleAppointmentWidget extends StatelessWidget {
   ScheduleAppointmentWidget({Key? key}) : super(key: key);
-  //final List items;
-  //final VoidCallback notifyParent;
-  //final Function() notifyParent;
+
   final ScrollController controller = ScrollController();
-
-  // void manageState() {
-  //   notifyParent();
-  //   print(notifyParent);
-  // }
-
-  //final DateTime now = DateTime.now();
   final AppointmentDataService _appDataService =
       locator<AppointmentDataService>();
 
@@ -71,7 +62,6 @@ class ScheduleAppointmentWidget extends StatelessWidget {
             ),
             Column(
               children: [
-                // PainterWidget(),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 20.0, horizontal: 25.0),
@@ -122,7 +112,6 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 15.0),
                   child: SizedBox(
-                    //width: 294,
                     width: 270.0,
                     height: media.size.height / 2,
                     child: Padding(
@@ -130,31 +119,20 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                       child: ListView.builder(
                           controller: controller,
                           itemCount: 1,
-                             // _appDataService.itemCard.length, //items.length,
                           itemBuilder: (BuildContext context, int index) {
-                        
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 for (final item in _appDataService.itemCard)
                                 ListCardWidget(
-                                  firstName: item.firstName,
-                                     // _appDataService.getAppointment.firstName,
-                                  lastName: item.lastName,
-                                     // _appDataService.getAppointment.lastName,
-                                  beginTimeHour: item.beginTimeHour,
-                                     // _appDataService.getAppointment.beginTimeHour,
-                                  beginTimeMinute: item.beginTimeMinute,
-                                     // _appDataService.getAppointment.beginTimeMinute,
-                                  endTimeHour: item.endTimeHour,
-                                      //_appDataService.getAppointment.endTimeHour,
-                                  endTimeMinute: item.endTimeMinute,
-                                      //_appDataService.getAppointment.endTimeMinute,
-                                  appointment: item.appoinment,
-                                      //_appDataService.getAppointment.appoinment,
+                                  firstName: item.firstName,                                     
+                                  lastName: item.lastName,                                     
+                                  beginTimeHour: item.beginTimeHour,                                     
+                                  beginTimeMinute: item.beginTimeMinute,                                    
+                                  endTimeHour: item.endTimeHour,                                      
+                                  endTimeMinute: item.endTimeMinute,                                      
+                                  appointment: item.appoinment,                                      
                                 ),
-                                // ListCardWidgetCurrently(),
-                                //  ListCardWidgetInactive(),
                               ],
                             );
                           }),

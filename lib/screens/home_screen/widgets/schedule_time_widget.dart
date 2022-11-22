@@ -13,7 +13,6 @@ class ScheduleTimeWidget extends StatelessWidget {
       Key? key})
       : super(key: key);
 
-//  DateFormat now = DateFormat('HH:mm');
 
   final DateTime now = DateTime.now();
   final List<String> timeSlots = [];
@@ -40,11 +39,10 @@ class ScheduleTimeWidget extends StatelessWidget {
       DateTime timeIncrement = beginTime.add(step);
       timeSlots.add(DateFormat.Hm().format(timeIncrement));
       beginTime = timeIncrement;
-       //print(timeIncrement);
     }
 
     return SizedBox(
-      height: _height,//320.0,
+      height: _height,
       width: 90.0,
       child: ListView.builder(
           itemCount: 1,

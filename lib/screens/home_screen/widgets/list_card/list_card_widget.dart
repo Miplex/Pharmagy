@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-//import 'package:pharmagy/data/services/appointment_data_service.dart';
-//import 'package:pharmagy/locator.dart';
 
 class ListCardWidget extends StatelessWidget {
   const ListCardWidget({
@@ -22,8 +20,6 @@ class ListCardWidget extends StatelessWidget {
   final String endTimeMinute;
   final String appointment;
 
-  // final AppointmentDataService _appDataService =
-  //     locator<AppointmentDataService>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +38,7 @@ class ListCardWidget extends StatelessWidget {
       width: 250,
       height: 80.0,
       child: GestureDetector(
-        onLongPress: () {
-          print(firstName);
-        },
+        onLongPress: () {},
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
@@ -61,7 +55,6 @@ class ListCardWidget extends StatelessWidget {
                       width: 30,
                       height: 30,
                     )),
-                // Icon(Icons.circle, color: Color.fromRGBO(212, 230, 255, 100),size: 30,),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,8 +62,6 @@ class ListCardWidget extends StatelessWidget {
                 children: [
                   Text(
                     '$firstName $lastName',
-                    //'${_appDataService.getAppointment.firstName}  ${_appDataService.getAppointment.lastName}',
-                    //'${item.firstName}  ${item.lastName}',
                     style: const TextStyle(
                         color: Color(0xff404d66),
                         fontSize: 10,
@@ -91,10 +82,7 @@ class ListCardWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        // '8:30 AM - 09:00 AM',
                         '$beginTimeHour : $beginTimeMinute - $endTimeHour : $endTimeMinute',
-                        //'${_appDataService.getAppointment.beginTimeHour} : ${_appDataService.getAppointment.beginTimeMinute} - ${_appDataService.getAppointment.endTimeHour} : ${_appDataService.getAppointment.endTimeMinute}',
-                        //'${item.beginTimeHour} : ${item.beginTimeMinute} - ${item.endTimeHour} : ${item.endTimeMinute}',
                         style: const TextStyle(
                             color: Color(0xff8193ae),
                             fontSize: 10,

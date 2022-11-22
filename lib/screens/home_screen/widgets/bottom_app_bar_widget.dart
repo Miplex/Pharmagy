@@ -57,7 +57,6 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
   }) {
     final isSelected = index == widget.index;
     return IconButton(
-      //onPressed: () => widget.onChangedColorIcon(index),
       onPressed: (){
          if (index == 1){
           Navigator.pushNamed(context, '/calendar');

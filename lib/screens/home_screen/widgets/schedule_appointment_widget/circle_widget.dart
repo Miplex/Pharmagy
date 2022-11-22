@@ -29,7 +29,6 @@ class CircleWidget extends StatelessWidget {
         Container(
           height: heightBoxShadow,
           width: widthBoxShadow,
-          //padding: const EdgeInsets.all(6.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             boxShadow: [
@@ -45,7 +44,6 @@ class CircleWidget extends StatelessWidget {
         Container(
           height: heightBoxBack,
           width: widthBoxBack,
-          // padding: const EdgeInsets.all(6.0),
           decoration: const BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
@@ -54,7 +52,6 @@ class CircleWidget extends StatelessWidget {
         Container(
           height: heightBoxFront,
           width: widthBoxFront,
-          // padding: const EdgeInsets.all(4.0),
           decoration: const BoxDecoration(
             color: Colors.blueAccent,
             shape: BoxShape.circle,

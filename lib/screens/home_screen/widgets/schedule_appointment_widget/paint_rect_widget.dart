@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:pharmagy/constants/constants.dart';
 
 class PaintRectWidget extends CustomPainter{

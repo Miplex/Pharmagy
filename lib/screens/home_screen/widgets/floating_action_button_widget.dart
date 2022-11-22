@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pharmagy/constants/constants.dart';
-//import 'package:pharmagy/data/model/appointment_data.dart';
 import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/data/services/appointment_data_service.dart';
-// import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
-//import 'alert/alertTimeWidget.dart';
-//import './list_card/list_card_widget.dart';
+
 
 class FloatingActionButtonWidget extends StatefulWidget {
   const FloatingActionButtonWidget({
@@ -31,7 +28,7 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
       locator<AppointmentDataService>();
 
   String dataDropDownValue = 'appointment';
-  //List<AppointmentData> item = [];
+
   void _addDataModal(BuildContext context) {
     Navigator.of(context).pop();
 
@@ -61,43 +58,6 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
     beginMinuteController.text = '';
     endHourController.text = '';
     endMinuteController.text = '';
-    // dataDropDownValue = 'appointment';
-    // //itemCard.add(1);
-    // item.add(_appDataService.getAppointment);
-    // print(item);
-    // for (var item in _appDataService.itemCard) {
-    //   print(item);
-    // }
-    // print(_appDataService.itemCard);
-    //print(_appDataService.itemCard.length);
-
-    // Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => const HomeScreenWidget(
-    //           // firstName: _appDataService.getAppointment.firstName,
-    //           // lastName: _appDataService.getAppointment.lastName,
-    //           // beginTimeHour: _appDataService.getAppointment.beginTimeHour,
-    //           // beginTimeMinute: _appDataService.getAppointment.beginTimeMinute,
-    //           // endTimeHour: _appDataService.getAppointment.endTimeHour,
-    //           // endTimeMinute: _appDataService.getAppointment.endTimeMinute,
-    //           // appointment: _appDataService.getAppointment.appoinment,
-    //           ),
-    //     ));
-
-    //print(_appDataService.getAppointment);
-    // _appDataService.setAppointment(
-    //   _appDataService.getAppointment.firstName = firstNameController.text,
-    //   _appDataService.getAppointment.lastName = lastNameController.text,
-    //   _appDataService.getAppointment.beginTimeHour = beginHourController.text,
-    //   _appDataService.getAppointment.beginTimeMinute = beginHourController.text,
-    //   _appDataService.getAppointment.endTimeHour = endHourController.text,
-    //   _appDataService.getAppointment.endTimeMinute = endMinuteController.text,
-    //   _appDataService.getAppointment.appoinment = dataDropDownValue,
-    // );
-    // print(_time.hourText);
-    // print(_time.minuteText);
-    // print(_appDataService.getAppointment);
   }
 
   @override
@@ -159,8 +119,6 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
         FocusScope.of(context).previousFocus();
       }
     }
-
-    //AlertTimeWidget _time = AlertTimeWidget();
     return showDialog(
       context: context,
       builder: (context) => StatefulBuilder(builder: (context, setState) {
@@ -230,9 +188,6 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                     ),
                     Row(
                       children: [
-                        // AlertTimeWidget(),
-                        // AlertTimeWidget(),
-
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
                           width: 60.0,
@@ -367,8 +322,6 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                   onChanged: (String? value) {
                     setState(() {
                       dataDropDownValue = value!;
-
-                      // print(appData.appoinment);
                     });
                   },
                 ),

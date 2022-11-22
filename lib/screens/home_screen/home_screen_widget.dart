@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pharmagy/data/services/appointment_data_service.dart';
-import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/screens/home_screen/widgets/avatar_widget/badge_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
-//import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/main_item_widget.dart';
-//import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/search_widget/search_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/schedule_appointment_widget.dart';
@@ -26,7 +22,6 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
   void onChangedColorIcon(int index) {
     setState(() {
       this.index = index;
-      //print('index: $index');
     });
   }
 
@@ -140,7 +135,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             ],
           ),
           Positioned(
-              top: _height / 4.2,//210.0,
+              top: _height / 4.2,
               child: MainItemWidget(
                 items: const ['1', '2', '3', '4'],
               )),
