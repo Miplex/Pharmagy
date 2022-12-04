@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmagy/constants/constants.dart';
+import 'package:pharmagy/data/model/appointment_data.dart';
 import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/data/services/appointment_data_service.dart';
-
+import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
 
 class FloatingActionButtonWidget extends StatefulWidget {
   const FloatingActionButtonWidget({
@@ -32,7 +34,7 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
   void _addDataModal(BuildContext context) {
     Navigator.of(context).pop();
 
-       _appDataService
+    _appDataService
         .setAppointment(
           firstNameController.text,
           lastNameController.text,
@@ -58,6 +60,7 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
     beginMinuteController.text = '';
     endHourController.text = '';
     endMinuteController.text = '';
+    //print(_appDataService.getAppointment);
   }
 
   @override
@@ -119,6 +122,7 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
         FocusScope.of(context).previousFocus();
       }
     }
+
     return showDialog(
       context: context,
       builder: (context) => StatefulBuilder(builder: (context, setState) {
@@ -249,7 +253,6 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                             ),
                           ),
                         ),
-
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
                           width: 60.0,
@@ -327,13 +330,24 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                 ),
                 Row(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        _addDataModal(context);
+                    BlocBuilder<HomeScreenBloc, HomeListCardState>(
+                      builder: (context, state) {
+                        return TextButton(
+                          onPressed: () {
+                            var listCard =
+                                AppointmentDataService().getAppointment;
+                            _addDataModal(context);
+                            context
+                                .read<HomeScreenBloc>()
+                                .add(HomeListCardEvent(
+                                  listData: listCard,
+                                ));
+                          },
+                          child: Text('Done',
+                              style: kCardsWidgetSecondTextStyle.copyWith(
+                                  fontSize: 16, color: Colors.blueAccent)),
+                        );
                       },
-                      child: Text('Done',
-                          style: kCardsWidgetSecondTextStyle.copyWith(
-                              fontSize: 16, color: Colors.blueAccent)),
                     ),
                     TextButton(
                       onPressed: () {

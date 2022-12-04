@@ -1,7 +1,7 @@
 import 'package:pharmagy/data/model/appointment_data.dart';
 
 class AppointmentDataService {
-  AppointmentData _appointmentData = const AppointmentData(
+  AppointmentData _appointmentData =  AppointmentData(
       firstName: 'John',
       lastName: 'Smit',
       beginTimeHour: '08',
