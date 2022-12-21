@@ -1,41 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmagy/constants/constants.dart';
 
-class MainItemWidget extends StatelessWidget{
-  MainItemWidget({Key? key, required this.items}) : super (key: key);
-  final List<String> items;
-  final PageController _pageController = PageController(viewportFraction: 0.6);
-
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData media = MediaQuery.of(context);
-    return Column(
-      children: [
-        SizedBox(
-          width: media.size.width,
-          height: media.size.height / 6.0,
-          child: PageView.builder(
-              controller: _pageController,
-              itemCount: items.length,
-              itemBuilder: (BuildContext context, int index){
-                return Column(
-                  children:  const [
-                    SizedBox(
-                     // width: media.size.width / 1.5,
-                      width: 242,
-                      height: 104,
-                      child: MainItemCard(),
-                    ),
-                  ],
-                );
-              }
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class MainItemCard extends StatelessWidget {
   const MainItemCard({
     Key? key,

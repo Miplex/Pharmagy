@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:uuid/uuid.dart';
 
+
 class AppointmentData extends Equatable {
   final String id;
   final String firstName;
@@ -10,23 +11,26 @@ class AppointmentData extends Equatable {
   final String endTimeHour;
   final String endTimeMinute;
   final String appoinment;
- 
+  final int countBadges = 5;
 
-   AppointmentData(
+  AppointmentData(
       {
       String? id,
+      int? countBadges,
       required this.firstName,
       required this.lastName,
       required this.beginTimeHour,
       required this.beginTimeMinute,
       required this.endTimeHour,
       required this.endTimeMinute,
-      required this.appoinment}) : assert (
-        id == null || id.isNotEmpty,
-      ),
-      id = id ?? const Uuid().v4();
+      required this.appoinment})
+      : assert(
+          id == null || id.isNotEmpty,
+        ),
+        id = id ?? const Uuid().v4();
 
   AppointmentData copyWith({
+    String? id,
     String? firstName,
     String? lastName,
     String? beginTimeHour,
@@ -34,7 +38,8 @@ class AppointmentData extends Equatable {
     String? endTimeHour,
     String? endTimeMinute,
     String? appoinment,
-    String? id,
+    int? totalPatient,
+    int? countBadges,
   }) =>
       AppointmentData(
           id: id ?? this.id,
@@ -44,6 +49,7 @@ class AppointmentData extends Equatable {
           beginTimeMinute: beginTimeMinute ?? this.beginTimeMinute,
           endTimeHour: endTimeHour ?? this.endTimeHour,
           endTimeMinute: endTimeMinute ?? this.endTimeMinute,
+          countBadges: countBadges ?? this.countBadges,
           appoinment: appoinment ?? this.appoinment);
 
   @override
@@ -56,5 +62,6 @@ class AppointmentData extends Equatable {
         endTimeHour,
         endTimeMinute,
         appoinment,
+        countBadges,
       ];
 }

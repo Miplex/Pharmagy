@@ -9,9 +9,9 @@ class AppointmentDataService {
       endTimeHour: '20',
       endTimeMinute: '00',
       appoinment: 'appointment');
-  List<AppointmentData> itemCard = [];
-  AppointmentData get getAppointment => _appointmentData;
 
+  AppointmentData get getAppointment => _appointmentData;
+  List<AppointmentData> itemCard = [];
   AppointmentData setAppointment(
     final String firstName,
     final String lastName,
@@ -20,6 +20,8 @@ class AppointmentDataService {
     final String endTimeHour,
     final String endTimeMinute,
     final String appoinment,
+    final int totalPatient,
+    final int countBadges,
   ) =>
       _appointmentData = _appointmentData.copyWith(
           firstName: firstName,
@@ -28,6 +30,8 @@ class AppointmentDataService {
           beginTimeMinute: beginTimeMinute,
           endTimeHour: endTimeHour,
           endTimeMinute: endTimeMinute,
+          totalPatient: totalPatient,
+          countBadges: countBadges,
           appoinment: appoinment);
 
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmagy/data/services/appointment_data_service.dart';
+import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/screens/home_screen/widgets/avatar_widget/badge_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
@@ -7,7 +9,6 @@ import 'package:pharmagy/screens/home_screen/widgets/main_item_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/search_widget/search_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/schedule_appointment_widget.dart';
-
 import 'bloc/home_screen_bloc.dart';
 
 class HomeScreenWidget extends StatefulWidget {
@@ -20,6 +21,10 @@ class HomeScreenWidget extends StatefulWidget {
 class _HomeScreenWidgetState extends State<HomeScreenWidget> {
   int index = 0;
   final TextEditingController _controller = TextEditingController();
+
+  final AppointmentDataService _appDataService =
+      locator<AppointmentDataService>();
+
   String dropdownValue = 'Today';
   final item = ['Today', 'Some'];
   void onChangedColorIcon(int index) {
@@ -52,9 +57,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           SearchWidget(controller: _controller),
-                          const BadgeWidget(
-                            count: 5,
-                          ),
+                          BadgeWidget(appDataService: _appDataService),
                         ],
                       ),
                     ),
@@ -115,10 +118,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                     // print(uiid);
                                   });
                                 },
-                                items: <String>[
-                                  'Today',
-                                  'Some'
-                                ].map<DropdownMenuItem<String>>((String value) {
+                                items: item.map<DropdownMenuItem<String>>((String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
                                     child: Text(value),
@@ -138,6 +138,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
               ),
               BlocBuilder<HomeScreenBloc, HomeScreenState>(
                 builder: (context, state) {
+                 // print(state);
                   return ScheduleAppointmentWidget();
                 },
               ),
