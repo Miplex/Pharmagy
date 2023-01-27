@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmagy/data/services/appointment_service.dart';
+import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
+// import 'package:hive/hive.dart';
+// import 'package:pharmagy/data/model/appointment_data.dart';
+//import 'package:pharmagy/repository/appointment_repository.dart';
 import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/paint_line/paint_line_dotted_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/paint_line/paint_line_solid_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/bloc/shedule_appointment_bloc.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/circle_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/paint_rect_widget.dart';
@@ -85,12 +92,12 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                           )),
                     ],
                   ),
-                ),              
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [                
+              children: [
                 SingleChildScrollView(
                   child: Column(
                     children: [
@@ -116,26 +123,34 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                     height: media.size.height / 2,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 32.0),
-                      child: ListView.builder(
-                          controller: controller,
-                          itemCount: 1,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                for (final item in _appDataService.itemCard)
-                                ListCardWidget(
-                                  firstName: item.firstName,                                     
-                                  lastName: item.lastName,                                     
-                                  beginTimeHour: item.beginTimeHour,                                     
-                                  beginTimeMinute: item.beginTimeMinute,                                    
-                                  endTimeHour: item.endTimeHour,                                      
-                                  endTimeMinute: item.endTimeMinute,                                      
-                                  appointment: item.appoinment,                                      
-                                ),
-                              ],
-                            );
-                          }),
+                      child: BlocBuilder<SheduleAppointmentBloc, SheduleAppointmentState>(
+                        builder: (context, state) {
+                          if (state is ShdeduleListCardState) {
+                            return ListView.builder(
+                                controller: controller,
+                                itemCount: 1,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children:  [
+                                     for(final item in state.allItemsCard)
+                                      ListCardWidget(
+                                        firstName: item.firstName,
+                                        lastName:  item.lastName,
+                                        beginTimeHour:   item.beginTimeHour,
+                                        beginTimeMinute: item.beginTimeMinute,
+                                        endTimeHour:   item.endTimeHour,
+                                        endTimeMinute: item.endTimeMinute,
+                                        appointment:   item.appoinment,
+                                      ),
+                                    ],
+                                  );
+                                });
+                          }
+                          return Container();
+                        },
+                      ),
                     ),
                   ),
                 ),

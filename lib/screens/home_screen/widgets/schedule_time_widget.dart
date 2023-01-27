@@ -27,7 +27,7 @@ class ScheduleTimeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _height = MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
 
     DateTime beginTime = DateTime(
        now.year, now.month, now.day, beginHour, beginMinute, beginSecond);
@@ -42,7 +42,7 @@ class ScheduleTimeWidget extends StatelessWidget {
     }
 
     return SizedBox(
-      height: _height,
+      height: height,
       width: 90.0,
       child: ListView.builder(
           itemCount: 1,
@@ -50,13 +50,13 @@ class ScheduleTimeWidget extends StatelessWidget {
             return Column(
               children: timeSlots.map((time) {
                 return SizedBox(
+                  height: 50.0,
                   child: Text(time,
                       style: const TextStyle(
                           color: Color(0xffB0BED4),
                           fontSize: 12,
                           fontFamily: 'NeutrifPro',
                           height: 1.41)),
-                  height: 50.0,
                 );
               }).toList(),
             );

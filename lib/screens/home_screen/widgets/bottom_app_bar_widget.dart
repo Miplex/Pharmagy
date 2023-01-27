@@ -10,10 +10,10 @@ class BottomAppBarWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BottomAppBarWidgetState createState() => _BottomAppBarWidgetState();
+  BottomAppBarWidgetState createState() => BottomAppBarWidgetState();
 }
 
-class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
+class BottomAppBarWidgetState extends State<BottomAppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

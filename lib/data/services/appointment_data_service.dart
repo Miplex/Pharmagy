@@ -12,26 +12,26 @@ class AppointmentDataService {
 
   AppointmentData get getAppointment => _appointmentData;
   List<AppointmentData> itemCard = [];
-  AppointmentData setAppointment(
-    final String firstName,
-    final String lastName,
-    final String beginTimeHour,
-    final String beginTimeMinute,
-    final String endTimeHour,
-    final String endTimeMinute,
-    final String appoinment,
-    final int totalPatient,
-    final int countBadges,
-  ) =>
-      _appointmentData = _appointmentData.copyWith(
-          firstName: firstName,
-          lastName: lastName,
-          beginTimeHour: beginTimeHour,
-          beginTimeMinute: beginTimeMinute,
-          endTimeHour: endTimeHour,
-          endTimeMinute: endTimeMinute,
-          totalPatient: totalPatient,
-          countBadges: countBadges,
-          appoinment: appoinment);
+  // AppointmentData setAppointment(
+  //   final String firstName,
+  //   final String lastName,
+  //   final String beginTimeHour,
+  //   final String beginTimeMinute,
+  //   final String endTimeHour,
+  //   final String endTimeMinute,
+  //   final String appoinment,
+  //   final int totalPatient,
+  //   final int countBadges,
+  // ) =>
+  //     _appointmentData = _appointmentData.copyWith(
+  //         firstName: firstName,
+  //         lastName: lastName,
+  //         beginTimeHour: beginTimeHour,
+  //         beginTimeMinute: beginTimeMinute,
+  //         endTimeHour: endTimeHour,
+  //         endTimeMinute: endTimeMinute,
+  //         totalPatient: totalPatient,
+  //         countBadges: countBadges,
+  //         appoinment: appoinment);
 
 }

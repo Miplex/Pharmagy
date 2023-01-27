@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmagy/constants/constants.dart';
-import 'package:pharmagy/locator.dart';
-import 'package:pharmagy/data/services/appointment_data_service.dart';
 import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
+import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/bloc/shedule_appointment_bloc.dart';
 
 import 'timer_picker/timer_picker.dart';
 
@@ -14,12 +12,10 @@ class FloatingActionButtonWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FloatingActionButtonState createState() => _FloatingActionButtonState();
+  FloatingActionButtonState createState() => FloatingActionButtonState();
 }
 
-class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
-
-
+class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
 
@@ -29,46 +25,8 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
   final endHourController = TextEditingController();
   final endMinuteController = TextEditingController();
 
-  final AppointmentDataService _appDataService =
-      locator<AppointmentDataService>();
-
+ 
   String dataDropDownValue = 'appointment';
-
-  void _addDataModal(BuildContext context) {
-    Navigator.of(context).pop();
-
-
-    _appDataService
-        .setAppointment(
-          firstNameController.text,
-          lastNameController.text,
-          beginHourController.text,
-          beginMinuteController.text,
-          endHourController.text,
-          endMinuteController.text,
-          dataDropDownValue,
-          0,
-          0,
-        )
-        .copyWith(
-            firstName: firstNameController.text,
-            lastName: lastNameController.text,
-            beginTimeHour: beginHourController.text,
-            beginTimeMinute: beginMinuteController.text,
-            endTimeHour: endHourController.text,
-            endTimeMinute: endMinuteController.text,
-            appoinment: dataDropDownValue,
-            totalPatient: 0,
-            countBadges: 0);
-    _appDataService.itemCard.add(_appDataService.getAppointment);
-    firstNameController.text = '';
-    lastNameController.text = '';
-    beginHourController.text = '';
-    beginMinuteController.text = '';
-    endHourController.text = '';
-    endMinuteController.text = '';
-    //print(_appDataService.getAppointment.id);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,11 +45,11 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
               //AlertDialog
               buildShowDialog(context);
             },
+            backgroundColor: const Color(0xff3c94ff),
             child: const Icon(
               Icons.add,
               size: 20.0,
             ),
-            backgroundColor: const Color(0xff3c94ff),
           ),
         ),
       ),
@@ -172,7 +130,7 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                       beginMinuteController: beginMinuteController,
                       endHourController: endHourController,
                       endMinuteController: endMinuteController,
-                      ),
+                    ),
                   ],
                 ),
                 DropdownButton<String>(
@@ -187,39 +145,29 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                 ),
                 Row(
                   children: [
-                    BlocBuilder<HomeScreenBloc, HomeListCardState>(
-                      builder: (context, state) {
-                        return TextButton(
+                         TextButton(
                           onPressed: () {
-                            var listCard = _appDataService.getAppointment;
-                            // var listCard = AppointmentData(
-                            //     firstName: firstNameController.text,
-                            //     lastName: lastNameController.text,
-                            //     beginTimeHour: beginHourController.text,
-                            //     beginTimeMinute: beginMinuteController.text,
-                            //     endTimeHour: endHourController.text,
-                            //     endTimeMinute: endMinuteController.text,
-                            //     appoinment: dataDropDownValue);
-
-                               
-
-                            _addDataModal(context);
-                            context
-                                .read<HomeScreenBloc>()
-                                .add(HomeListCardEvent(
-                                  listData: listCard,
-                                ));
-
-                              
-
-                            print(listCard);
+                            BlocProvider.of<HomeScreenBloc>(context).add(
+                                AddAppointmentEvent(
+                                    firstNameController.text,
+                                    lastNameController.text,
+                                    beginHourController.text,
+                                    beginMinuteController.text,
+                                    endHourController.text,
+                                    endMinuteController.text,
+                                    dataDropDownValue));
+                            //print(context);
+                            BlocProvider.of<SheduleAppointmentBloc>(context)
+                                .add(SheduleListCardEvent());
+                            Navigator.of(context).pop();
                           },
                           child: Text('Done',
                               style: kCardsWidgetSecondTextStyle.copyWith(
                                   fontSize: 16, color: Colors.blueAccent)),
-                        );
-                      },
-                    ),
+                        ),
+                     // },
+                  //  ),
+
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -249,5 +197,3 @@ class _FloatingActionButtonState extends State<FloatingActionButtonWidget> {
         ),
       );
 }
-
-

@@ -24,13 +24,13 @@ class ListCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    String _iconAppointment = '';
+    String iconAppointment = '';
     if(appointment == 'appointment'){
-      _iconAppointment = 'assets/images/icons/appointment_2.svg';
+      iconAppointment = 'assets/images/icons/appointment_2.svg';
     }else if(appointment == 'anesthesia'){
-      _iconAppointment = 'assets/images/icons/anesthesia_oval.svg';
+      iconAppointment = 'assets/images/icons/anesthesia_oval.svg';
     }else if(appointment == 'mouthwash'){
-      _iconAppointment = 'assets/images/icons/mounthwash_2.svg';
+      iconAppointment = 'assets/images/icons/mounthwash_2.svg';
     }
     
 
@@ -51,7 +51,7 @@ class ListCardWidget extends StatelessWidget {
                 child: IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(
-                      _iconAppointment,
+                      iconAppointment,
                       width: 30,
                       height: 30,
                     )),
