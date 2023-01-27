@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmagy/data/services/appointment_data_service.dart';
 import 'package:pharmagy/data/services/appointment_service.dart';
-import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/screens/home_screen/widgets/avatar_widget/badge_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
@@ -23,9 +21,7 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
   int index = 0;
   final TextEditingController _controller = TextEditingController();
 
-  final AppointmentDataService _appDataService =
-      locator<AppointmentDataService>();
-
+ 
   String dropdownValue = 'Today';
   final item = ['Today', 'Some'];
   void onChangedColorIcon(int index) {
@@ -62,7 +58,7 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             SearchWidget(controller: _controller),
-                            BadgeWidget(appDataService: _appDataService),
+                            const BadgeWidget(),
                           ],
                         ),
                       ),

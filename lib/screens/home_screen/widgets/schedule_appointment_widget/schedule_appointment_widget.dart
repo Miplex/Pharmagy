@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmagy/data/services/appointment_service.dart';
-import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
-// import 'package:hive/hive.dart';
-// import 'package:pharmagy/data/model/appointment_data.dart';
-//import 'package:pharmagy/repository/appointment_repository.dart';
 import 'package:pharmagy/screens/home_screen/widgets/list_card/list_card_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/paint_line/paint_line_dotted_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/paint_line/paint_line_solid_widget.dart';
@@ -13,15 +8,12 @@ import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget
 import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/paint_rect_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
-import 'package:pharmagy/data/services/appointment_data_service.dart';
-import 'package:pharmagy/locator.dart';
+
 
 class ScheduleAppointmentWidget extends StatelessWidget {
   ScheduleAppointmentWidget({Key? key}) : super(key: key);
 
   final ScrollController controller = ScrollController();
-  final AppointmentDataService _appDataService =
-      locator<AppointmentDataService>();
 
   @override
   Widget build(BuildContext context) {

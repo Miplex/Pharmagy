@@ -6,15 +6,6 @@ abstract class HomeScreenEvent extends Equatable {
   // List<Object> get props => [];
 }
 
-class HomeListCardEvent extends HomeScreenEvent {
-  // final AppointmentData listData;
-  // const HomeListCardEvent({
-  //   required this.listData,
-  // });
-
-  @override
-  List<Object> get props => [];
-}
 
 class AddAppointmentEvent extends HomeScreenEvent {
   final String firstName;
@@ -50,10 +41,3 @@ class RegisterServicesEvent extends HomeScreenEvent {
   List<Object?> get props => [];
 }
 
-class TestEvent extends HomeScreenEvent {
-  // final String text;
-
-  // const TestEvent(this.text);
-  @override
-  List<Object?> get props => [];
-}

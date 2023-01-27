@@ -1,14 +1,12 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:pharmagy/data/services/appointment_data_service.dart';
+
 
 class BadgeWidget extends StatelessWidget {
   const BadgeWidget({
     Key? key,
-    required AppointmentDataService appDataService,
-  }) : _appDataService = appDataService, super(key: key);
-
-  final AppointmentDataService _appDataService;
+  
+  }) :  super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +18,8 @@ class BadgeWidget extends StatelessWidget {
             animationDuration: Duration(milliseconds: 300),
             //animationType: BadgeAnimationType.slide,
             ),
-            badgeContent:  Text( '${_appDataService.getAppointment.countBadges}',
-              style: const TextStyle(color: Colors.white, fontSize: 11.0),
+            badgeContent:  const Text( '5',
+              style: TextStyle(color: Colors.white, fontSize: 11.0),
             ),
           child:  const DecoratedBox(
                 decoration: BoxDecoration(

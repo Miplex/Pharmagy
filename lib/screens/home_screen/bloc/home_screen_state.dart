@@ -10,12 +10,3 @@ class HomeInitial extends HomeScreenState {
   
 }
 
-class HomeListCardState extends HomeScreenState {
-  final List<AppointmentData> allItemsCard;
-  const HomeListCardState(
-    this.allItemsCard,
-  );
-
-  @override
-  List<Object> get props => [allItemsCard];
-}
