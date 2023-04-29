@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86.824" height="86.641" viewBox="0 0 86.824 86.641">
+  <defs>
+    <filter id="Mask" x="0" y="0" width="86.824" height="86.641" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6.5" result="blur"/>
+      <feFlood flood-color="#144ea1" flood-opacity="0.349"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Mask-2" x="0" y="0" width="86.824" height="86.641" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6.5" result="blur-2"/>
+      <feFlood flood-color="#144ea1" flood-opacity="0.349"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Mask)">
+        <ellipse id="Mask-3" data-name="Mask" cx="20.712" cy="20.621" rx="20.712" ry="20.621" transform="translate(0 0)" fill="#3481ef" stroke="#3480ee" stroke-miterlimit="10" stroke-width="3.2"/>
+      </g>
+    </clipPath>
+    <filter id="Path" x="24.853" y="20.803" width="37.119" height="37.034" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-color="#2972da"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_All_anasthesia" transform="translate(-209.3 12.7)">
+    <g id="event-03" transform="translate(232)">
+      <g id="bg">
+        <g transform="matrix(1, 0, 0, 1, -22.7, -12.7)" filter="url(#Mask-2)">
+          <g id="Mask-4" data-name="Mask" transform="translate(22.7 12.7)" fill="#3481ef" stroke="#3480ee" stroke-miterlimit="10" stroke-width="3.2">
+            <ellipse cx="20.712" cy="20.621" rx="20.712" ry="20.621" stroke="none"/>
+            <ellipse cx="20.712" cy="20.621" rx="22.312" ry="22.221" fill="none"/>
+          </g>
+        </g>
+        <g id="bg-2" data-name="bg" clip-path="url(#clip-path)">
+          <g transform="matrix(1, 0, 0, 1, -22.7, -12.7)" filter="url(#Path)">
+            <path id="Path-2" data-name="Path" d="M16.052,3.843h0L19.119.79,18.325,0,15.259,3.053,11.6,1.867,9.537,3.922,12,6.4l-.8.786L8.743,4.712l-1.31,1.3L9.9,8.495l-.8.786L6.639,6.807l-1.31,1.3,2.464,2.478-.8.786L4.536,8.9,2.674,10.755,1.4,9.483l-.793.79,2.913,2.9-1.888,1.88h0l-.835-.831L0,15.011l4.041,4.023.793-.79L4,17.414l1.889-1.88,2.913,2.9.793-.79L8.317,16.372l8.927-8.888Z" transform="translate(33.85 23.8)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+      <g id="verified" transform="translate(27.881 26.966)">
+        <ellipse id="Oval" cx="9.559" cy="9.517" rx="9.559" ry="9.517" transform="translate(0 0)" fill="#fff"/>
+      </g>
+      <g id="checked-symbol" transform="translate(32.661 32.517)">
+        <path id="Path-3" data-name="Path" d="M9.256.518,8.983.234a.756.756,0,0,0-1.094,0L3.241,5.054,1.592,3.345a.756.756,0,0,0-1.094,0l-.273.283a.827.827,0,0,0,0,1.134L2.693,7.325a.757.757,0,0,0,1.094,0l5.47-5.672A.827.827,0,0,0,9.256.518Z" transform="translate(0 0.146)" fill="#3380ed"/>
+      </g>
+    </g>
+  </g>
+</svg>

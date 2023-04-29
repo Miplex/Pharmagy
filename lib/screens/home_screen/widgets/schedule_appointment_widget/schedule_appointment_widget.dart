@@ -9,7 +9,6 @@ import 'package:pharmagy/screens/home_screen/widgets/schedule_time_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/paint_rect_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
 
-
 class ScheduleAppointmentWidget extends StatelessWidget {
   ScheduleAppointmentWidget({Key? key}) : super(key: key);
 
@@ -115,26 +114,39 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                     height: media.size.height / 2,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 32.0),
-                      child: BlocBuilder<SheduleAppointmentBloc, SheduleAppointmentState>(
+                      child: BlocBuilder<SheduleAppointmentBloc,
+                          SheduleAppointmentState>(
                         builder: (context, state) {
-                          if (state is ShdeduleListCardState) {
+                          if (state is SheduleListCardState) {
+                            print('SheduleListCardState');
+                            //print(state.allItemsCard.length);
                             return ListView.builder(
                                 controller: controller,
-                                itemCount: 1,
+                                itemCount: state.allItemsCard.length,
                                 itemBuilder: (BuildContext context, int index) {
                                   return Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children:  [
-                                     for(final item in state.allItemsCard)
+                                    children: [
                                       ListCardWidget(
-                                        firstName: item.firstName,
-                                        lastName:  item.lastName,
-                                        beginTimeHour:   item.beginTimeHour,
-                                        beginTimeMinute: item.beginTimeMinute,
-                                        endTimeHour:   item.endTimeHour,
-                                        endTimeMinute: item.endTimeMinute,
-                                        appointment:   item.appoinment,
+                                        currentTime: true,
+                                        id: state
+                                            .allItemsCard[index].id, 
+                                        firstName: state.allItemsCard[index]
+                                            .firstName, 
+                                        lastName: state.allItemsCard[index]
+                                            .lastName, 
+                                        beginTimeHour: state.allItemsCard[index]
+                                            .beginTimeHour, 
+                                        beginTimeMinute: state
+                                            .allItemsCard[index]
+                                            .beginTimeMinute, 
+                                        endTimeHour: state.allItemsCard[index]
+                                            .endTimeHour, 
+                                        endTimeMinute: state.allItemsCard[index]
+                                            .endTimeMinute, 
+                                        appointment: state.allItemsCard[index]
+                                            .appoinment, 
                                       ),
                                     ],
                                   );

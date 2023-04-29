@@ -5,6 +5,7 @@ import 'package:pharmagy/screens/home_screen/widgets/avatar_widget/badge_widget.
 import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/main_item_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/bloc/shedule_appointment_bloc.dart';
 import 'package:pharmagy/screens/home_screen/widgets/search_widget/search_widget.dart';
 import 'package:pharmagy/constants/constants.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/schedule_appointment_widget.dart';
@@ -21,14 +22,8 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
   int index = 0;
   final TextEditingController _controller = TextEditingController();
 
- 
   String dropdownValue = 'Today';
   final item = ['Today', 'Some'];
-  void onChangedColorIcon(int index) {
-    setState(() {
-      this.index = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,10 +70,18 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   style: kCardsWidgetPrimaryTextStyle.copyWith(
                                       fontSize: 18.0),
                                 ),
-                                Text(
-                                  '12 total',
-                                  style: kCardsWidgetSecondTextStyle.copyWith(
-                                      fontSize: 12.0),
+                                BlocBuilder<SheduleAppointmentBloc,
+                                    SheduleAppointmentState>(
+                                  builder: (context, state) {
+                                    if (state is SheduleListCardState) {
+                                      return Text(
+                                        '${state.allItemsCard.length} total',
+                                        style: kCardsWidgetSecondTextStyle
+                                            .copyWith(fontSize: 12.0),
+                                      );
+                                    }
+                                    return Container();
+                                  },
                                 ),
                               ],
                             ),
@@ -136,11 +139,16 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
                 const SizedBox(
                   height: 42.0,
                 ),
-                BlocBuilder<HomeScreenBloc, HomeScreenState>(
-                    builder: (context, state) {
-                 // print(state);
-                  return ScheduleAppointmentWidget();
-                }),
+                //Спросить правильно ли такой подход когда запускается BlocListener
+                BlocListener<HomeScreenBloc, HomeScreenState>(
+                  listener: (context, state) {
+                    if (state is HomeInitial) {
+                      BlocProvider.of<SheduleAppointmentBloc>(context)
+                          .add(SheduleListCardEvent());
+                    }
+                  },
+                  child: ScheduleAppointmentWidget(),
+                ),
               ],
             ),
             Positioned(
@@ -156,7 +164,7 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
 
       bottomNavigationBar: BottomAppBarWidget(
         index: index,
-        onChangedColorIcon: onChangedColorIcon,
+        onChangedColorIcon: (int value) {},
       ),
     );
   }

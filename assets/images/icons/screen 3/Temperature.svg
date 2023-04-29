@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <filter id="Oval_Copy_3" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#3d8bff" flood-opacity="0.694"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Temperature" transform="translate(7.5 -0.5)">
+    <g transform="matrix(1, 0, 0, 1, -7.5, 0.5)" filter="url(#Oval_Copy_3)">
+      <circle id="Oval_Copy_3-2" data-name="Oval Copy 3" cx="15" cy="15" r="15" transform="translate(7.5 3.5)" fill="#3d8bff"/>
+    </g>
+    <g id="thermometer" transform="translate(11 12)">
+      <path id="Shape" d="M0,11.25a3.644,3.644,0,0,1,1.333-2.8V2.5A2.588,2.588,0,0,1,4,0,2.587,2.587,0,0,1,6.666,2.5V8.455A3.642,3.642,0,0,1,8,11.25,3.882,3.882,0,0,1,4,15,3.881,3.881,0,0,1,0,11.25Z" fill="#fff"/>
+      <rect id="Rectangle" width="1.333" height="7.5" transform="translate(3.333 5)" fill="#fff"/>
+      <ellipse id="Oval" cx="2" cy="1.875" rx="2" ry="1.875" transform="translate(2 9.375)" fill="#fff"/>
+      <path id="Path_5" data-name="Path 5" d="M1.316,0h4V3.432L6.456,5.546V7.5L4.57,9.1H2.223L.877,8.125,0,6.639l.342-1.77L1.087,3.75l.229-.619Z" transform="translate(0.684 5)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

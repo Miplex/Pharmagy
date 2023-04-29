@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <filter id="Oval_Copy_24" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#3d8bff" flood-opacity="0.694"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Glucose" transform="translate(7.5 -0.5)">
+    <g transform="matrix(1, 0, 0, 1, -7.5, 0.5)" filter="url(#Oval_Copy_24)">
+      <circle id="Oval_Copy_24-2" data-name="Oval Copy 24" cx="15" cy="15" r="15" transform="translate(7.5 3.5)" fill="#3d8bff"/>
+    </g>
+    <path id="Shape" d="M0,9.123a8.434,8.434,0,0,1,.749-3.3A15.223,15.223,0,0,1,2.367,3.006,19.886,19.886,0,0,1,4.712.269L5,0l.287.269A19.784,19.784,0,0,1,7.634,3.006,15.274,15.274,0,0,1,9.252,5.824,8.448,8.448,0,0,1,10,9.123,4.945,4.945,0,0,1,5,14,4.945,4.945,0,0,1,0,9.123Z" transform="translate(10 12)" fill="#fff"/>
+  </g>
+</svg>

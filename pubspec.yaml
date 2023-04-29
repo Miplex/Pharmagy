@@ -87,6 +87,8 @@ flutter:
     - assets/images/icons/anesthesia_inactive.svg
     - assets/images/icons/mounthwash_2.svg
     - assets/images/icons/appointment_2.svg
+    - assets/images/icons/clock/Arrow.svg
+    - assets/images/icons/clock/Menu.svg
 
 
 

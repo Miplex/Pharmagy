@@ -36,7 +36,7 @@ class AppointmentService {
       final String beginTimeMinute,
       final String endTimeHour,
       final String endTimeMinute,
-      final String appoinment) {
+      final String appointment) {
     _appointment.add(AppointmentData(
         firstName: firstName,
         lastName: lastName,
@@ -44,6 +44,36 @@ class AppointmentService {
         beginTimeMinute: beginTimeMinute,
         endTimeHour: endTimeHour,
         endTimeMinute: endTimeMinute,
-        appoinment: appoinment));
+        appoinment: appointment));
+  }
+
+  Future<void> deleteAppointment(final String id) async {
+    final appointmentToRemove =
+        _appointment.values.firstWhere((element) => element.id == id);
+    await appointmentToRemove.delete();
+  }
+
+  Future<void> updateAppointment(
+      final String id,
+      final String firstName,
+      final String lastName,
+      final String beginTimeHour,
+      final String beginTimeMinute,
+      final String endTimeHour,
+      final String endTimeMinute,
+      final String appointment) async {
+    final appointmentUpdate =
+        _appointment.values.firstWhere((element) => element.id == id);
+    final index = appointmentUpdate.id;
+    await _appointment.put(
+        index,
+        AppointmentData(
+            firstName: firstName,
+            lastName: lastName,
+            beginTimeHour: beginTimeHour,
+            beginTimeMinute: beginTimeMinute,
+            endTimeHour: endTimeHour,
+            endTimeMinute: endTimeMinute,
+            appoinment: appointment));
   }
 }

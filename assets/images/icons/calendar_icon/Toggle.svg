@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9.482" height="7.558" viewBox="0 0 9.482 7.558">
+  <defs>
+    <filter id="Mask" x="-55.361" y="-45.363" width="86.824" height="86.641" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6.5" result="blur"/>
+      <feFlood flood-color="#144ea1" flood-opacity="0.349"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Toggle" transform="translate(-264.661 -32.663)">
+    <g id="event-03" transform="translate(232)">
+      <g id="checked-symbol" transform="translate(32.661 32.517)">
+        <path id="Path" d="M9.256.518,8.983.234a.756.756,0,0,0-1.094,0L3.241,5.054,1.592,3.345a.756.756,0,0,0-1.094,0l-.273.283a.827.827,0,0,0,0,1.134L2.693,7.325a.757.757,0,0,0,1.094,0l5.47-5.672A.827.827,0,0,0,9.256.518Z" transform="translate(0 0.146)" fill="#3380ed"/>
+      </g>
+    </g>
+  </g>
+</svg>

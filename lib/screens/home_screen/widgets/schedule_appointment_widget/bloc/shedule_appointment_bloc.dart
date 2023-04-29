@@ -12,16 +12,41 @@ class SheduleAppointmentBloc
 
   SheduleAppointmentBloc(this._appService)
       : super(SheduleAppointmentInitialState()) {
-    on<SheduleListCardEvent>(_onListCard);
-    
-    
+   // on<RegisterServicesEvent>(_onRegisterService);
+    on<SheduleListCardEvent>(_onGetAllAppointment);
+    on<SheduleAppointmentDeleteEvent>(_onDeleteAppointment);
+    on<SheduleAppointmentUpdateEvent>(_onUpdateAppointment);
   }
 
-  
+  // void _onRegisterService(RegisterServicesEvent event,
+  //     Emitter<SheduleAppointmentState> emit) async {
+  //   await _appService.init();
+  //   emit(SheduleAppointmentInitialState());
+  // }
 
-  void _onListCard(
+  void _onGetAllAppointment(
       SheduleListCardEvent event, Emitter<SheduleAppointmentState> emit) {
     final allAppointment = _appService.getAllAppointment();
-    emit(ShdeduleListCardState(allAppointment));
+    emit(SheduleListCardState(allAppointment));
+  }
+
+  void _onDeleteAppointment(SheduleAppointmentDeleteEvent event,
+      Emitter<SheduleAppointmentState> emit) {
+    _appService.deleteAppointment(event.id);
+    add(SheduleListCardEvent());
+  }
+
+  void _onUpdateAppointment(SheduleAppointmentUpdateEvent event,
+      Emitter<SheduleAppointmentState> emit) {
+    _appService.updateAppointment(
+        event.id,
+        event.firstName,
+        event.lastName,
+        event.beginTimeHour,
+        event.beginTimeMinute,
+        event.endTimeHour,
+        event.endTimeMinute,
+        event.appointment);
+    add(SheduleListCardEvent());
   }
 }

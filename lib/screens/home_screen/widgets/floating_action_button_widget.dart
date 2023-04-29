@@ -25,7 +25,6 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
   final endHourController = TextEditingController();
   final endMinuteController = TextEditingController();
 
- 
   String dataDropDownValue = 'appointment';
 
   @override
@@ -145,28 +144,36 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                 ),
                 Row(
                   children: [
-                         TextButton(
-                          onPressed: () {
-                            BlocProvider.of<HomeScreenBloc>(context).add(
-                                AddAppointmentEvent(
-                                    firstNameController.text,
-                                    lastNameController.text,
-                                    beginHourController.text,
-                                    beginMinuteController.text,
-                                    endHourController.text,
-                                    endMinuteController.text,
-                                    dataDropDownValue));
-                            //print(context);
-                            BlocProvider.of<SheduleAppointmentBloc>(context)
-                                .add(SheduleListCardEvent());
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('Done',
-                              style: kCardsWidgetSecondTextStyle.copyWith(
-                                  fontSize: 16, color: Colors.blueAccent)),
-                        ),
-                     // },
-                  //  ),
+                    TextButton(
+                      onPressed: () {
+                        BlocProvider.of<HomeScreenBloc>(context).add(
+                            AddAppointmentEvent(
+                                firstNameController.text,
+                                lastNameController.text,
+                                beginHourController.text,
+                                beginMinuteController.text,
+                                endHourController.text,
+                                endMinuteController.text,
+                                dataDropDownValue));
+                        //print(context);
+                        BlocProvider.of<SheduleAppointmentBloc>(context)
+                            .add(SheduleListCardEvent());
+
+                        firstNameController.text = '';
+                        lastNameController.text = '';
+                        beginHourController.text = '';
+                        beginMinuteController.text = '';
+                        endHourController.text = '';
+                        endMinuteController.text = '';
+
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Done',
+                          style: kCardsWidgetSecondTextStyle.copyWith(
+                              fontSize: 16, color: Colors.blueAccent)),
+                    ),
+                    // },
+                    //  ),
 
                     TextButton(
                       onPressed: () {

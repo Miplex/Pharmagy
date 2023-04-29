@@ -97,11 +97,11 @@ class MainItemCard extends StatelessWidget {
                     height: 52.0,
                     child: Row(
                       children:  const [
-                        CircleAvatar(radius: 8.0, backgroundColor: Color(0xff7DA8DD),),
+                        CircleAvatar(radius: 12.0, backgroundColor: Color(0xff7DA8DD),),
                         SizedBox(width: 6.0,),
-                        CircleAvatar(radius: 8.0, backgroundColor: Color(0xff7DA8DD)),
+                        CircleAvatar(radius: 12.0, backgroundColor: Color(0xff7DA8DD)),
                         SizedBox(width: 6.0,),
-                        CircleAvatar(radius: 8.0, backgroundColor: Color(0xff7DA8DD)),
+                        CircleAvatar(radius: 12.0, backgroundColor: Color(0xff7DA8DD)),
                         Spacer(),
                         _CheckerButton(),
                       ],
@@ -128,6 +128,6 @@ class _CheckerButton extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onPressed: (){},
-      icon: const Icon(Icons.check_circle),color: const Color(0xff5298FF),iconSize: 22.0,);
+      icon: const Icon(Icons.check_circle, color: Color(0xff5298FF)),iconSize: 26.0,);
   }
 }
