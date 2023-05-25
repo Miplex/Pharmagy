@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:pharmagy/data/model/appointment_data.dart';
 import 'package:pharmagy/data/services/appointment_service.dart';
 //import 'package:flutter/rendering.dart';
@@ -12,6 +13,8 @@ import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
 import 'package:pharmagy/screens/home_screen/home_screen_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/bloc/shedule_appointment_bloc.dart';
 import 'package:pharmagy/screens/profile_screen/profile_screen_widget.dart';
+
+import 'screens/clock_screen/cubit/clock_screen_cubit.dart';
 
 //import 'data/model/appointment_data.dart';
 
@@ -33,6 +36,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    // final AppointmentService _appService;
+
+
+
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(create: (context) => AppointmentService()),
@@ -41,6 +47,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => HomeScreenBloc(RepositoryProvider.of<AppointmentService>(context))),
           BlocProvider(create: (context) => SheduleAppointmentBloc(RepositoryProvider.of<AppointmentService>(context))),
+          BlocProvider(create: (context) => ClockScreenCubit())
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

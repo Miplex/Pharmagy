@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pharmagy/constants/constants.dart';
 import 'package:pharmagy/screens/clock_screen/paint_clock_widget.dart';
+
+import 'cubit/clock_screen_cubit.dart';
 
 class ClockScreenWidget extends StatelessWidget {
   const ClockScreenWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    final time = DateFormat('hh : mm').format(now);
-    final timeFormat = DateFormat('a').format(now);
+
+    BlocProvider.of<ClockScreenCubit>(context).changeTime();
     return Container(
       decoration: const BoxDecoration(
         gradient: kClockBackgroundColor,
@@ -38,7 +40,10 @@ class ClockScreenWidget extends StatelessWidget {
                   children: [
                     IconButton(
                       splashColor: Colors.transparent,
-                      onPressed: () {},
+                      onPressed: () {
+                        //Test
+                       // BlocProvider.of<ClockScreenCubit>(context).changeTime();
+                      },
                       icon: SvgPicture.asset(
                           'assets/images/icons/Search_icon.svg',
                           width: 15),
@@ -82,13 +87,26 @@ class ClockScreenWidget extends StatelessWidget {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            time,
-                            style: kCardsWidgetPrimaryTextStyle.copyWith(
-                                fontSize: 35),
+                          BlocBuilder<ClockScreenCubit, ClockScreenState>(
+                            builder: (context, state) {
+                              if (state is ClockUpdateState) {
+                                 print('ClockUpdateState');
+                                 print(state);
+                                return SizedBox(
+                                  height: 38,
+                                  width: 140,
+                                  child: Text(
+                                    state.time,
+                                    style: kCardsWidgetPrimaryTextStyle.copyWith(
+                                        fontSize: 35),
+                                  ),
+                                );
+                              }
+                              return const SizedBox();
+                            },
                           ),
                           Text(
-                            timeFormat,
+                            '', // timeFormat,
                             style: kCardsWidgetSecondTextStyle.copyWith(
                                 fontSize: 20.0),
                           ),
@@ -99,12 +117,13 @@ class ClockScreenWidget extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar:  BottomAppBar(
+        bottomNavigationBar: BottomAppBar(
           child: Row(
             children: [
               Container(
-              color: Colors.white,
-              height: 100.0,),
+                color: Colors.white,
+                height: 100.0,
+              ),
             ],
           ),
         ),

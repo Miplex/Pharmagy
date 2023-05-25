@@ -1,7 +1,7 @@
 {
-    "editor.fontSize": 18,
-    "editor.fontFamily": "Iosevka,Consolas, 'Courier New', monospace",
+    "editor.fontSize": 14,
     "editor.accessibilityPageSize": 10,
     "screencastMode.fontSize": 56,
-    "workbench.sash.size": 4
+    "workbench.sash.size": 4,
+    "editor.fontLigatures": false
 }

@@ -118,7 +118,7 @@ class ScheduleAppointmentWidget extends StatelessWidget {
                           SheduleAppointmentState>(
                         builder: (context, state) {
                           if (state is SheduleListCardState) {
-                            print('SheduleListCardState');
+                            //print('SheduleListCardState');
                             //print(state.allItemsCard.length);
                             return ListView.builder(
                                 controller: controller,

@@ -40,7 +40,7 @@ class PaintClockWidget extends CustomPainter {
         circle2,
       );
     }
-    print(radius / 8);
+   // print(radius / 8);
 // while (startY < 20) {
 //       canvas.drawCircle(Offset(0.0, startY + dashWidth),2.0, circle2);
 //       startY += dashWidth + dashSpace;
