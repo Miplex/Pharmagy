@@ -18,8 +18,8 @@ class MainItemWidget extends StatelessWidget{
               controller: _pageController,
               itemCount: items.length,
               itemBuilder: (BuildContext context, int index){
-                return Column(
-                  children:  const [
+                return const Column(
+                  children: [
                     SizedBox(
                      // width: media.size.width / 1.5,
                       width: 242,
@@ -91,12 +91,12 @@ class MainItemCard extends StatelessWidget {
                   ),
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+               const Padding(
+                  padding: EdgeInsets.only(left: 20.0, bottom: 5.0),
                   child: SizedBox(
                     height: 52.0,
                     child: Row(
-                      children:  const [
+                      children:  [
                         CircleAvatar(radius: 12.0, backgroundColor: Color(0xff7DA8DD),),
                         SizedBox(width: 6.0,),
                         CircleAvatar(radius: 12.0, backgroundColor: Color(0xff7DA8DD)),

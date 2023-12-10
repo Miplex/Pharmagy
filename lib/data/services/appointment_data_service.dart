@@ -1,17 +1,18 @@
-import 'package:pharmagy/data/model/appointment_data.dart';
+//import 'package:pharmagy/data/model/appointment_data.dart';
 
-class AppointmentDataService {
-  AppointmentData _appointmentData =  AppointmentData(
-      firstName: 'John',
-      lastName: 'Smit',
-      beginTimeHour: '08',
-      beginTimeMinute: '30',
-      endTimeHour: '20',
-      endTimeMinute: '00',
-      appoinment: 'appointment');
+// class AppointmentDataService {
+//   final AppointmentData _appointmentData =  AppointmentData(
+//       firstName: 'John',
+//       lastName: 'Smit',
+//       beginTimeHour: '08',
+//       beginTimeMinute: '30',
+//       endTimeHour: '20',
+//       endTimeMinute: '00',
+//       appointment: 'appointment',
+//       office: '');
 
-  AppointmentData get getAppointment => _appointmentData;
-  List<AppointmentData> itemCard = [];
+//   AppointmentData get getAppointment => _appointmentData;
+//   List<AppointmentData> itemCard = [];
   // AppointmentData setAppointment(
   //   final String firstName,
   //   final String lastName,
@@ -34,4 +35,4 @@ class AppointmentDataService {
   //         countBadges: countBadges,
   //         appoinment: appoinment);
 
-}
+//}

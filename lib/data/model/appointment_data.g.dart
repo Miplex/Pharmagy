@@ -25,7 +25,7 @@ class AppointmentDataAdapter extends TypeAdapter<AppointmentData> {
       beginTimeMinute: fields[4] as String,
       endTimeHour: fields[5] as String,
       endTimeMinute: fields[6] as String,
-      appoinment: fields[7] as String,
+      appointment: fields[7] as String,
     );
   }
 
@@ -48,7 +48,7 @@ class AppointmentDataAdapter extends TypeAdapter<AppointmentData> {
       ..writeByte(6)
       ..write(obj.endTimeMinute)
       ..writeByte(7)
-      ..write(obj.appoinment)
+      ..write(obj.appointment)
       ..writeByte(8)
       ..write(obj.countBadges);
   }

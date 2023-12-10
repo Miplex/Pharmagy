@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BottomAppBarWidget extends StatefulWidget {
-  final int index;
-  final ValueChanged<int> onChangedColorIcon;
+final int index;
+
 
   const BottomAppBarWidget(
-      {required this.index, required this.onChangedColorIcon, Key? key})
+      {required this.index, Key? key})
       : super(key: key);
 
   @override
@@ -26,12 +26,12 @@ class BottomAppBarWidgetState extends State<BottomAppBarWidget> {
               buildBarItem(
                 index: 0,
                 icon: SvgPicture.asset('assets/images/icons/Home_icon.svg',
-                    width: 20.0),
+                    width: 22.0, height: 24.0, colorFilter: ColorFilter.mode(widget.index == 0 ? Colors.blue : Colors.grey, BlendMode.srcIn)),
               ),
               buildBarItem(
                 index: 1,
                 icon: SvgPicture.asset('assets/images/icons/Calendar_grey.svg',
-                    width: 20.0),
+                    width: 22.0, height: 24.0, colorFilter: ColorFilter.mode(widget.index == 1 ? Colors.blue : Colors.grey, BlendMode.srcIn)),
               ),
               const SizedBox(
                 width: 55,
@@ -39,12 +39,12 @@ class BottomAppBarWidgetState extends State<BottomAppBarWidget> {
               buildBarItem(
                 index: 2,
                 icon: SvgPicture.asset('assets/images/icons/Clock.svg',
-                    width: 20.0),
+                    width: 22.0, height: 24.0, colorFilter: ColorFilter.mode(widget.index == 2 ? Colors.blue : Colors.grey, BlendMode.srcIn)),
               ),
               buildBarItem(
                 index: 3,
                 icon: SvgPicture.asset('assets/images/icons/Profile.svg',
-                    width: 20.0),
+                    width: 22.0, height: 24.0, colorFilter: ColorFilter.mode(widget.index == 3 ? Colors.blue : Colors.grey, BlendMode.srcIn)),
               ),
             ],
           ),
@@ -53,12 +53,13 @@ class BottomAppBarWidgetState extends State<BottomAppBarWidget> {
 
   Widget buildBarItem({
     required int index,
-    required icon,
+    required Widget icon,
   }) {
-    final isSelected = index == widget.index;
     return IconButton(
       onPressed: (){
+           //print(index);
          if (index == 1){
+       
           Navigator.pushNamed(context, '/calendar');
         }else if(index == 2){
           Navigator.pushNamed(context, '/clock');
@@ -67,7 +68,6 @@ class BottomAppBarWidgetState extends State<BottomAppBarWidget> {
         }
       },
       icon: icon,
-      color: isSelected ? Colors.blue : Colors.grey,
     );
   }
 }

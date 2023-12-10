@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 class BadgeWidget extends StatelessWidget {
   const BadgeWidget({
     Key? key,
-  
+    required this.countBadges
   }) :  super(key: key);
+ final int countBadges;
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +15,9 @@ class BadgeWidget extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       child: badges.Badge(
             position: badges.BadgePosition.topEnd(top: -6, end: 3),
-            badgeAnimation: const badges.BadgeAnimation.slide(
-            animationDuration: Duration(milliseconds: 300),
-            //animationType: BadgeAnimationType.slide,
-            ),
-            badgeContent:  const Text( '5',
-              style: TextStyle(color: Colors.white, fontSize: 11.0),
+           badgeAnimation: const badges.BadgeAnimation.slide(toAnimate: false),
+            badgeContent:   Text( '$countBadges',
+              style: const TextStyle(color: Colors.white, fontSize: 11.0),
             ),
           child:  const DecoratedBox(
                 decoration: BoxDecoration(

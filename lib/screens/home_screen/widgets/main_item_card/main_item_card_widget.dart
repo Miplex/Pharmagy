@@ -56,12 +56,12 @@ class MainItemCard extends StatelessWidget {
                   ),
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+               const Padding(
+                  padding: EdgeInsets.only(left: 20.0, bottom: 5.0),
                   child: SizedBox(
                     height: 52.0,
                     child: Row(
-                      children:  const [
+                      children: [
                         CircleAvatar(radius: 8.0, backgroundColor: Color(0xff7DA8DD),),
                         SizedBox(width: 6.0,),
                         CircleAvatar(radius: 8.0, backgroundColor: Color(0xff7DA8DD)),

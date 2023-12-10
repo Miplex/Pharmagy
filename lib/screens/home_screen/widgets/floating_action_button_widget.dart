@@ -24,6 +24,7 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
 
   final endHourController = TextEditingController();
   final endMinuteController = TextEditingController();
+  final officeController = TextEditingController();
 
   String dataDropDownValue = 'appointment';
 
@@ -35,11 +36,12 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
         gradient: kAddItemColor,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(13.0),
+        padding: const EdgeInsets.all(18.0),
         child: SizedBox(
-          height: 30,
-          width: 30,
+          height: 50,
+          width: 50,
           child: FloatingActionButton(
+          //  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
             onPressed: () {
               //AlertDialog
               buildShowDialog(context);
@@ -47,7 +49,8 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
             backgroundColor: const Color(0xff3c94ff),
             child: const Icon(
               Icons.add,
-              size: 20.0,
+              size: 30.0,
+             // color: Colors.white,
             ),
           ),
         ),
@@ -101,10 +104,8 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                   ),
                 ),
                 Column(
-                  children: [
-                    const SizedBox(
-                      height: 10.0,
-                    ),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       mainAxisSize: MainAxisSize.max,
@@ -130,6 +131,10 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                       endHourController: endHourController,
                       endMinuteController: endMinuteController,
                     ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    
                   ],
                 ),
                 DropdownButton<String>(
@@ -165,6 +170,7 @@ class FloatingActionButtonState extends State<FloatingActionButtonWidget> {
                         beginMinuteController.text = '';
                         endHourController.text = '';
                         endMinuteController.text = '';
+                        officeController.text = '';
 
                         Navigator.of(context).pop();
                       },

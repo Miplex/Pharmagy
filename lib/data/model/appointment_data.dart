@@ -28,10 +28,12 @@ class AppointmentData extends HiveObject{
   final String endTimeMinute;
 
   @HiveField(7)
-  final String appoinment;
+  final String appointment;
 
   @HiveField(8)
-  final int countBadges = 5;
+  final int countBadges = 0;
+
+  
 
   AppointmentData(
       {
@@ -43,45 +45,11 @@ class AppointmentData extends HiveObject{
       required this.beginTimeMinute,
       required this.endTimeHour,
       required this.endTimeMinute,
-      required this.appoinment})
+      required this.appointment,
+       })
       : assert(
           id == null || id.isNotEmpty,
         ),
         id = id ?? const Uuid().v4();
 
-  // AppointmentData copyWith({
-  //   String? id,
-  //   String? firstName,
-  //   String? lastName,
-  //   String? beginTimeHour,
-  //   String? beginTimeMinute,
-  //   String? endTimeHour,
-  //   String? endTimeMinute,
-  //   String? appoinment,
-  //   int? totalPatient,
-  //   int? countBadges,
-  // }) =>
-  //     AppointmentData(
-  //         id: id ?? this.id,
-  //         firstName: firstName ?? this.firstName,
-  //         lastName: lastName ?? this.lastName,
-  //         beginTimeHour: beginTimeHour ?? this.beginTimeHour,
-  //         beginTimeMinute: beginTimeMinute ?? this.beginTimeMinute,
-  //         endTimeHour: endTimeHour ?? this.endTimeHour,
-  //         endTimeMinute: endTimeMinute ?? this.endTimeMinute,
-  //         countBadges: countBadges ?? this.countBadges,
-  //         appoinment: appoinment ?? this.appoinment);
-
-  // @override
-  // List<Object?> get props => [
-  //       id,
-  //       firstName,
-  //       lastName,
-  //       beginTimeHour,
-  //       beginTimeMinute,
-  //       endTimeHour,
-  //       endTimeMinute,
-  //       appoinment,
-  //       countBadges,
-  //     ];
 }

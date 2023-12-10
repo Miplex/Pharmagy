@@ -1,76 +1,87 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:ui' as ui;
+
 
 class PaintClockWidget extends CustomPainter {
-  // final DateTime _datetime;
-  //final double _borderWidth;
+  //hardcore
+  var dateTime = DateTime.now();
+  var secSize = pi / 50;
 
   @override
   void paint(Canvas canvas, Size size) {
     final radius = min(size.width, size.height) / 2;
-    // final double borderWidth = _borderWidth;
-    // double dashWidth = 4.0, dashSpace = 9.0, startY = -50.0;
+    final radiusInnerClock = min(size.width, size.height) / 3;
 
-    var circle1 = Paint()
+    double centerXs = 0.0;
+    double centerYs = 0.0;
+    //var center = Offset(centerX, centerY);
+     //var radius = min(centerX, centerY);
+
+    var solidCircle = Paint()
       ..strokeWidth = 15.0
       ..style = PaintingStyle.stroke
-      ..color = Color(0xFF0707070);
+      ..color = const Color(0xff3481EF);
 
-    var circle2 = Paint()
-      ..strokeWidth = 2.0
+    var backgroundCircleInnerClock = Paint()
+      ..strokeWidth = 90.0
       ..style = PaintingStyle.stroke
-      ..color = Color(0xFF0707070);
+      ..shader = ui.Gradient.linear(const Offset(50, 0), const Offset(60, 50), [const Color(0xff1c5cb7), const Color(0xff104896)]);
+
+    var dotedCircle = Paint()
+      ..strokeWidth = 2//0.3
+      ..style = PaintingStyle.stroke
+      ..color = const Color(0xffffffff);
+
+    var secHandBrush = Paint()
+      ..color = const Color(0xffffffff)
+      ..style = PaintingStyle.stroke
+     // ..strokeCap = StrokeCap.round
+      ..strokeWidth = 30;
+     
+
+   // Animate smoothly with easing.
+   // var msecs = Curves.easeInOut.transform(dateTime.millisecond / 1000);
+    var msecs = 2 * pi / 60;
+    var timeAngle = (dateTime.second - 1) * (2 * pi / 60) + msecs - secSize / 2;
+    timeAngle = timeAngle - pi / 2;
+
+      
+     var center = Offset(centerXs, centerYs);
+     var rect = Rect.fromCenter(center: center, width: size.width / 1.2, height: size.height / 1.2);
+     
+
 
     canvas.translate(size.width / 2, size.height / 2);
-    canvas.drawCircle(const Offset(0, 0), radius, circle1);
-    //  canvas.drawCircle(const Offset(0, 0), radius/1.3, circle2);
+     
+    canvas.drawCircle(const Offset(0, 0), radius, solidCircle);
+    canvas.drawCircle(const Offset(0, 0), radiusInnerClock, backgroundCircleInnerClock);
+   
+     canvas.drawArc(rect, timeAngle, secSize, false, secHandBrush);
 
-    const double centerX = 0.0; // radius / 8;
-    const double centerY = 0.0; //radius / 8;
-    const double filledCircleRadius = 1;
-    const int numberOfDots = 21;
-    const double radiantStep = 2 * pi / numberOfDots;
+
+  
+    const double centerX = 0.0;
+    const double centerY = 0.0;
+    const double filledCircleRadius = 0.3;
+    const int numberOfDots = 50;
+    const double radiantStep = 5 * pi / numberOfDots;
+   
+    
     for (int i = 0; i < numberOfDots; i++) {
       canvas.drawCircle(
+        
         Offset(centerX + sin(i * radiantStep) * radius / 1.3,
             centerY + cos(i * radiantStep) * radius / 1.3),
         filledCircleRadius,
-        circle2,
+        dotedCircle,
       );
     }
-   // print(radius / 8);
-// while (startY < 20) {
-//       canvas.drawCircle(Offset(0.0, startY + dashWidth),2.0, circle2);
-//       startY += dashWidth + dashSpace;
-//     }
 
-    // border style
-    // if (borderWidth > 0) {
-    //   Paint borderPaint = Paint()
-    //     ..color = Color.fromARGB(0, 0, 0, 0)
-    //     ..style = PaintingStyle.stroke
-    //     ..strokeWidth = borderWidth
-    //     ..isAntiAlias = true;
-    //   canvas.drawCircle(Offset(0, 0), radius - borderWidth / 2, borderPaint);
-    // }
-
-    //drawing center point
-    // Paint centerPointPaint = Paint()
-    //   ..strokeWidth = ((radius - borderWidth) / 10)
-    //   ..strokeCap = StrokeCap.round
-    //   ..color = Colors.black;
-    // canvas.drawPoints(PointMode.points, [Offset(0, 0)], centerPointPaint);
   }
 
   @override
   bool shouldRepaint(PaintClockWidget oldDelegate) {
-    // return _datetime != oldDelegate._datetime ||
-    return false;
+    return true;
   }
-
-  // static double getRadians(double angle) {
-  //   return angle * pi / 180;
-  // }
 }

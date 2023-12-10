@@ -22,7 +22,7 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
           event.beginTimeMinute,
           event.endTimeHour,
           event.endTimeMinute,
-          event.appoinment);
+          event.appoinment,);
       emit(HomeInitial());
     });
   }

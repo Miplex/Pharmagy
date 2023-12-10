@@ -27,21 +27,6 @@ class CircleWidget extends StatelessWidget {
       alignment: alignment,
       children: [
         Container(
-          height: heightBoxShadow,
-          width: widthBoxShadow,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(90),
-                offset: Offset.zero,
-                blurRadius: 5.0,
-                spreadRadius: 0.0,
-              ),
-            ],
-          ),
-        ),
-        Container(
           height: heightBoxBack,
           width: widthBoxBack,
           decoration: const BoxDecoration(

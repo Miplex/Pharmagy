@@ -19,11 +19,10 @@ class HomeScreenWidget extends StatefulWidget {
 }
 
 class HomeScreenWidgetState extends State<HomeScreenWidget> {
-  int index = 0;
   final TextEditingController _controller = TextEditingController();
 
   String dropdownValue = 'Today';
-  final item = ['Today', 'Some'];
+  final item = ['Today', 'Some1','Some2','Some3'];
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,7 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
                 Container(
                   height: height / 3.2,
                   decoration: const BoxDecoration(
-                    gradient: kMainColor,
+                    gradient: AppColor.kMainColor,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +52,17 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             SearchWidget(controller: _controller),
-                            const BadgeWidget(),
+                            BlocBuilder<SheduleAppointmentBloc,
+                                SheduleAppointmentState>(
+                              builder: (context, state) {
+                                if (state is SheduleListCardState) {
+                                  return BadgeWidget(
+                                    countBadges: state.allItemsCard.length,
+                                  );
+                                }
+                                return const SizedBox();
+                              },
+                            ),
                           ],
                         ),
                       ),
@@ -100,7 +109,7 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 10.0),
+                                    horizontal: 8.0),
                                 child: DropdownButton<String>(
                                   borderRadius: BorderRadius.circular(3.0),
                                   alignment: Alignment.centerRight,
@@ -159,12 +168,14 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> {
           ],
         ),
       ),
-      floatingActionButton: const FloatingActionButtonWidget(),
+      floatingActionButton: const Padding(
+        padding: EdgeInsets.only(bottom: 20.0),
+        child: FloatingActionButtonWidget(),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      bottomNavigationBar: BottomAppBarWidget(
-        index: index,
-        onChangedColorIcon: (int value) {},
+      bottomNavigationBar: const BottomAppBarWidget(
+        index: 0,
       ),
     );
   }

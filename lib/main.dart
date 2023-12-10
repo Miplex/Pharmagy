@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/intl.dart';
-import 'package:pharmagy/data/model/appointment_data.dart';
 import 'package:pharmagy/data/services/appointment_service.dart';
-//import 'package:flutter/rendering.dart';
-import 'package:pharmagy/locator.dart';
+//import 'package:pharmagy/locator.dart';
 import 'package:pharmagy/screens/calendar_screen/calendar_screen_widget.dart';
 import 'package:pharmagy/screens/clock_screen/clock_screen_widget.dart';
 import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
-//import 'package:pharmagy/screens/home_screen/bloc/home_screen_bloc.dart';
 import 'package:pharmagy/screens/home_screen/home_screen_widget.dart';
 import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/bloc/shedule_appointment_bloc.dart';
 import 'package:pharmagy/screens/profile_screen/profile_screen_widget.dart';
@@ -22,11 +18,9 @@ import 'screens/clock_screen/cubit/clock_screen_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized;
-  setupLocator();
+  //setupLocator();
   await Hive.initFlutter();
-  //debugRepaintRainbowEnabled = true;
-  // Hive.registerAdapter(AppointmentDataAdapter());
-  // await Hive.openBox<AppointmentData>('appointment_box');
+
   runApp(const MyApp());
 }
 

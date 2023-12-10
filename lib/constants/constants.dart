@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+abstract class AppColor{
+  static const kMainColor = LinearGradient(
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
+    colors: <Color>[Color(0xff07377a), Color(0xff2266C7)]);
+    }
+
 const kMainColor = LinearGradient(
     begin: Alignment.centerRight,
     end: Alignment.centerLeft,
@@ -34,5 +41,13 @@ const kAvatarOvalColor = Color(0xFFFA3D3D);
 const kClockBackgroundColor = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: <Color>[Color(0xFF0C4492), Color(0xFF0C4492)]);
+    colors: <Color>[Color(0xff2064c5), Color(0xFF0C4492)]);
 const kClockAppbarColor = Color.fromARGB(255, 44, 117, 218);
+const kBackgroundColorClock = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: <Color>[Color.fromARGB(255, 13, 92, 203), Color.fromARGB(255, 14, 87, 190)]);
+    const kClockColor = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: <Color>[Color(0xff144ea2), Color.fromARGB(255, 73, 123, 202)]);

@@ -23,7 +23,7 @@ class AddAppointmentEvent extends HomeScreenEvent {
       this.beginTimeMinute,
       this.endTimeHour,
       this.endTimeMinute,
-      this.appoinment);
+      this.appoinment,);
   @override
   List<Object?> get props => [
         firstName,
@@ -32,7 +32,7 @@ class AddAppointmentEvent extends HomeScreenEvent {
         beginTimeMinute,
         endTimeHour,
         endTimeMinute,
-        appoinment
+        appoinment,
       ];
 }
 

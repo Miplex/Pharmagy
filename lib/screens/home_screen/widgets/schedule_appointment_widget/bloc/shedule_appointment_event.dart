@@ -25,6 +25,7 @@ class SheduleAppointmentUpdateEvent extends SheduleAppointmentEvent {
   final String endTimeHour;
   final String endTimeMinute;
   final String appointment;
+  final String office;
 
   SheduleAppointmentUpdateEvent(
       this.id,
@@ -34,7 +35,8 @@ class SheduleAppointmentUpdateEvent extends SheduleAppointmentEvent {
       this.beginTimeMinute,
       this.endTimeHour,
       this.endTimeMinute,
-      this.appointment);
+      this.appointment,
+      this.office);
 
   @override
   List<Object?> get props => [
@@ -45,6 +47,7 @@ class SheduleAppointmentUpdateEvent extends SheduleAppointmentEvent {
         beginTimeMinute,
         endTimeHour,
         endTimeMinute,
+        office,
         appointment
       ];
 }

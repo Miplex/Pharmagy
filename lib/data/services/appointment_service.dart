@@ -26,6 +26,7 @@ class AppointmentService {
 
   List<AppointmentData> getAllAppointment() {
     final appointment = _appointment.values;
+    // print(appointment.toList().first.appointment);
     return appointment.toList();
   }
 
@@ -36,7 +37,7 @@ class AppointmentService {
       final String beginTimeMinute,
       final String endTimeHour,
       final String endTimeMinute,
-      final String appointment) {
+      final String appointment,) {
     _appointment.add(AppointmentData(
         firstName: firstName,
         lastName: lastName,
@@ -44,7 +45,8 @@ class AppointmentService {
         beginTimeMinute: beginTimeMinute,
         endTimeHour: endTimeHour,
         endTimeMinute: endTimeMinute,
-        appoinment: appointment));
+        appointment: appointment,
+       ));
   }
 
   Future<void> deleteAppointment(final String id) async {
@@ -74,6 +76,6 @@ class AppointmentService {
             beginTimeMinute: beginTimeMinute,
             endTimeHour: endTimeHour,
             endTimeMinute: endTimeMinute,
-            appoinment: appointment));
+            appointment: appointment));
   }
 }

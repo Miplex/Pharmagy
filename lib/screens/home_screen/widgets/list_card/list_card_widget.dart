@@ -28,6 +28,8 @@ class ListCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print(appointment);
+    // print(office);
     String iconAppointment = '';
     if (appointment == 'appointment') {
       iconAppointment = 'assets/images/icons/appointment_2.svg';
@@ -39,67 +41,81 @@ class ListCardWidget extends StatelessWidget {
 
     return SizedBox(
       width: 250,
-      height: currentTime == true ? 80.0 : 60,
+      height: firstName == 'Rustem' ? 80.0 : 60,
       child: BlocBuilder<SheduleAppointmentBloc, SheduleAppointmentState>(
         builder: (context, state) {
           return GestureDetector(
             onLongPress: () {
               _showMyDialog(context);
             },
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+            child: DecoratedBox(
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xffd6e2f6),
+                    spreadRadius: 10.0,
+                    blurRadius: 10.0,
+                    offset: Offset(0.0, 20.0)
+                  )
+                ]
               ),
-              color: Colors.white,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: SvgPicture.asset(
-                          iconAppointment,
-                          width: 30,
-                          height: 30,
-                        )),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '$firstName $lastName',
-                        style: const TextStyle(
-                            color: Color(0xff404d66),
-                            fontSize: 10,
-                            fontFamily: 'NeutrifProMedium',
-                            height: 1.41),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 3, vertical: 2),
-                            child: Icon(
-                              Icons.circle,
-                              color: Color(0xff8193ae),
-                              size: 10.89,
-                            ),
-                          ),
-                          Text(
-                            '$beginTimeHour : $beginTimeMinute - $endTimeHour : $endTimeMinute',
-                            style: const TextStyle(
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                                                //Test
+                                          //_____________________________________________________                        
+                color:  Colors.white,   //firstName == 'Rustem' ? Colors.white : Colors.black87,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            iconAppointment,
+                            width: 30,
+                            height: 30,
+                          )),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '$firstName $lastName',
+                          style: const TextStyle(
+                              color: Color(0xff404d66),
+                              fontSize: 10,
+                              fontFamily: 'NeutrifProMedium',
+                              height: 1.41),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 3, vertical: 2),
+                              child: Icon(
+                                Icons.circle,
                                 color: Color(0xff8193ae),
-                                fontSize: 10,
-                                height: 1.7),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                                size: 10.89,
+                              ),
+                            ),
+                            Text(
+                              '$beginTimeHour : $beginTimeMinute - $endTimeHour : $endTimeMinute',
+                              style: const TextStyle(
+                                  color: Color(0xff8193ae),
+                                  fontSize: 10,
+                                  height: 1.7),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           );
@@ -115,9 +131,9 @@ class ListCardWidget extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Delete Appointment'),
-          content: SingleChildScrollView(
+          content: const SingleChildScrollView(
             child: ListBody(
-              children: const [
+              children: [
                 Text('Would you like to delete appointment?'),
               ],
             ),

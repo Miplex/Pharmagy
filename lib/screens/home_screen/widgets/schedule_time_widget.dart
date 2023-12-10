@@ -35,32 +35,33 @@ class ScheduleTimeWidget extends StatelessWidget {
         DateTime(now.year, now.month, now.day, endHour, endMinute, endSecond);
     Duration step = Duration(minutes: interval);
 
-    while (beginTime.isBefore(endTime)) {
+        while (beginTime.isBefore(endTime)) {
       DateTime timeIncrement = beginTime.add(step);
       timeSlots.add(DateFormat.Hm().format(timeIncrement));
       beginTime = timeIncrement;
     }
-
+ 
+  final currentTime = DateFormat.Hm().format(now);
+   
+  
     return SizedBox(
       height: height,
-      width: 90.0,
+      width: 80.0,
       child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (BuildContext context, int index) {
-            return Column(
-              children: timeSlots.map((time) {
-                return SizedBox(
-                  height: 50.0,
-                  child: Text(time,
-                      style: const TextStyle(
-                          color: Color(0xffB0BED4),
-                          fontSize: 12,
-                          fontFamily: 'NeutrifPro',
-                          height: 1.41)),
-                );
-              }).toList(),
-            );
-          }),
+            itemCount: 1,
+            itemBuilder: (BuildContext context, int index) {
+              return Column(
+                children: timeSlots.map((time) {
+                  return  ListTile(
+                    textColor: time == currentTime ? const Color.fromARGB(255, 149, 59, 59) : const Color(0xffB0BED4),
+                    title: Text(time, style: const TextStyle(    
+                           fontSize: 12,
+                             fontFamily: 'NeutrifPro',),),
+                  );
+                }).toList(),
+              );
+            }),
     );
   }
+
 }
