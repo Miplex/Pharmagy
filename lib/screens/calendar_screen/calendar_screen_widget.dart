@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmagy/screens/home_screen/widgets/bottom_app_bar_widget.dart';
+import 'package:pharmagy/screens/home_screen/widgets/schedule_appointment_widget/m_schedule_appointment_widget.dart';
 //import 'package:pharmagy/screens/home_screen/widgets/floating_action_button_widget.dart';
 
 class CalendarScreenWidget extends StatelessWidget {
@@ -12,7 +13,7 @@ class CalendarScreenWidget extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Calendar'),
       ),
-      body: const Column(),
+      body: MScheduleAppointmentWidget(),
       // floatingActionButton: const FloatingActionButtonWidget(),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const BottomAppBarWidget(
